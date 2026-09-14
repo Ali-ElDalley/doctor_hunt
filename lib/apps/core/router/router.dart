@@ -14,6 +14,12 @@ import 'package:doctor_hunt/apps/features/auth/presentation/screens/forget_passw
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/otp_verfication.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/screens/create_new_password.dart';
 
+// Home 
+import 'package:doctor_hunt/apps/features/home/presentation/screens/home_screen.dart';
+
+// Root
+import 'package:doctor_hunt/apps/features/main/screens/root.dart';
+
 part 'router.g.dart';
 
 @TypedGoRoute<OnboardingRoute>(path: '/onboarding')
@@ -77,6 +83,95 @@ class CreateNewPasswordRoute extends GoRouteData with $CreateNewPasswordRoute {
   Widget build(BuildContext context, GoRouterState state) =>
       const CreateNewPassword();
 }
+
+
+
+
+@TypedStatefulShellRoute<MainShellRouteData>(
+  branches: [
+    TypedStatefulShellBranch<HomeBranchData>(
+      routes: [
+        TypedGoRoute<HomeRoute>(path: '/home'),
+      ],
+    ),
+    TypedStatefulShellBranch<FavoritesBranchData>(
+      routes: [
+        TypedGoRoute<FavoritesRoute>(path: '/favorites'),
+      ],
+    ),
+    TypedStatefulShellBranch<BookmarksBranchData>(
+      routes: [
+        TypedGoRoute<BookmarksRoute>(path: '/bookmarks'),
+      ],
+    ),
+    TypedStatefulShellBranch<ChatBranchData>(
+      routes: [
+        TypedGoRoute<ChatRoute>(path: '/chat'),
+      ],
+    ),
+  ],
+)
+class MainShellRouteData extends StatefulShellRouteData {
+  const MainShellRouteData();
+
+  @override
+  Widget builder(
+    BuildContext context,
+    GoRouterState state,
+    StatefulNavigationShell navigationShell,
+  ) {
+    return Root(navigationShell: navigationShell);
+  }
+}
+
+class HomeBranchData extends StatefulShellBranchData {
+  const HomeBranchData();
+}
+
+class HomeRoute extends GoRouteData with $HomeRoute {
+  const HomeRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const HomeScreen();
+}
+
+class FavoritesBranchData extends StatefulShellBranchData {
+  const FavoritesBranchData();
+}
+
+class FavoritesRoute extends GoRouteData with $FavoritesRoute {
+  const FavoritesRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const Placeholder();
+}
+
+class BookmarksBranchData extends StatefulShellBranchData {
+  const BookmarksBranchData();
+}
+
+class BookmarksRoute extends GoRouteData with $BookmarksRoute {
+  const BookmarksRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const Placeholder();
+}
+
+class ChatBranchData extends StatefulShellBranchData {
+  const ChatBranchData();
+}
+
+class ChatRoute extends GoRouteData with $ChatRoute {
+  const ChatRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const Placeholder();
+}
+
 
 final GoRouter router = GoRouter(
   initialLocation: '/onboarding',

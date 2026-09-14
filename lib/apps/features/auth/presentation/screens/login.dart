@@ -58,7 +58,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 Gap(31),
-                CustomButtom(text: "Log In", onTap: (){}),
+                CustomButtom(text: "Log In", onTap: ()=>HomeRoute().go(context)),
                 Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

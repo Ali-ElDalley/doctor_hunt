@@ -14,6 +14,7 @@ List<RouteBase> get $appRoutes => [
   $forgetPasswordRoute,
   $otpVerficationRoute,
   $createNewPasswordRoute,
+  $mainShellRouteData,
 ];
 
 RouteBase get $onboardingRoute => GoRouteData.$route(
@@ -193,6 +194,135 @@ mixin $CreateNewPasswordRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/create-new-password');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $mainShellRouteData => StatefulShellRouteData.$route(
+  factory: $MainShellRouteDataExtension._fromState,
+  branches: [
+    StatefulShellBranchData.$branch(
+      routes: [
+        GoRouteData.$route(
+          path: '/home',
+          hasOverriddenOnExit: false,
+          factory: $HomeRoute._fromState,
+        ),
+      ],
+    ),
+    StatefulShellBranchData.$branch(
+      routes: [
+        GoRouteData.$route(
+          path: '/favorites',
+          hasOverriddenOnExit: false,
+          factory: $FavoritesRoute._fromState,
+        ),
+      ],
+    ),
+    StatefulShellBranchData.$branch(
+      routes: [
+        GoRouteData.$route(
+          path: '/bookmarks',
+          hasOverriddenOnExit: false,
+          factory: $BookmarksRoute._fromState,
+        ),
+      ],
+    ),
+    StatefulShellBranchData.$branch(
+      routes: [
+        GoRouteData.$route(
+          path: '/chat',
+          hasOverriddenOnExit: false,
+          factory: $ChatRoute._fromState,
+        ),
+      ],
+    ),
+  ],
+);
+
+extension $MainShellRouteDataExtension on MainShellRouteData {
+  static MainShellRouteData _fromState(GoRouterState state) =>
+      const MainShellRouteData();
+}
+
+mixin $HomeRoute on GoRouteData {
+  static HomeRoute _fromState(GoRouterState state) => const HomeRoute();
+
+  @override
+  String get location => GoRouteData.$location('/home');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin $FavoritesRoute on GoRouteData {
+  static FavoritesRoute _fromState(GoRouterState state) =>
+      const FavoritesRoute();
+
+  @override
+  String get location => GoRouteData.$location('/favorites');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin $BookmarksRoute on GoRouteData {
+  static BookmarksRoute _fromState(GoRouterState state) =>
+      const BookmarksRoute();
+
+  @override
+  String get location => GoRouteData.$location('/bookmarks');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin $ChatRoute on GoRouteData {
+  static ChatRoute _fromState(GoRouterState state) => const ChatRoute();
+
+  @override
+  String get location => GoRouteData.$location('/chat');
 
   @override
   void go(BuildContext context) => context.go(location);
