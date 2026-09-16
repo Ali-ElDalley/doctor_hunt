@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/apps/core/router/router.dart';
+import 'package:doctor_hunt/apps/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widget/auth_app_bar.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widget/custom_form_field.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
@@ -11,7 +12,7 @@ class CreateNewPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AppScaffold(
       appBar: AuthAppBar(text: "Cancel"),
       body: SafeArea(
         child: Padding(
@@ -37,7 +38,9 @@ class CreateNewPassword extends StatelessWidget {
               Center(
                 child: CustomButtom(
                   text: "Submit",
-                  onTap: () => LoginRoute().go(context),
+                  height: 50,
+                  width: 342,
+                  onTap: () => LoginRoute().push(context),
                 ),
               ),
             ],

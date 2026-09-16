@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/apps/core/router/router.dart';
 import 'package:doctor_hunt/apps/core/utils/app_images.dart';
+import 'package:doctor_hunt/apps/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widget/role_card.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
@@ -18,7 +19,7 @@ class _ChooseRoleScreenState extends State<ChooseRoleScreen> {
   int selectedRole = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AppScaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
@@ -70,7 +71,9 @@ class _ChooseRoleScreenState extends State<ChooseRoleScreen> {
                 Spacer(),
                 CustomButtom(
                   text: "Continue",
-                  onTap: () => LoginRoute().go(context),
+                  height: 56,
+                  width: 350,
+                  onTap: () => LoginRoute().push(context),
                 ),
                 Gap(20),
               ],

@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/apps/core/router/router.dart';
+import 'package:doctor_hunt/apps/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widget/auth_app_bar.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widget/custom_pin_put.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
@@ -17,7 +18,6 @@ class OtpVerfication extends StatefulWidget {
 class _OtpVerficationState extends State<OtpVerfication> {
   final TextEditingController pinPut = TextEditingController();
 
-
   @override
   void dispose() {
     pinPut.dispose();
@@ -26,7 +26,7 @@ class _OtpVerficationState extends State<OtpVerfication> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AppScaffold(
       appBar: AuthAppBar(text: "Cancel"),
       body: SafeArea(
         child: Padding(
@@ -34,11 +34,7 @@ class _OtpVerficationState extends State<OtpVerfication> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "OTP Verfication",
-               style: context.bold28Primary,
-
-              ),
+              Text("OTP Verfication", style: context.bold28Primary),
               Gap(6),
               Text(
                 "Please enter the 4 digit code sent your phone number",
@@ -50,7 +46,9 @@ class _OtpVerficationState extends State<OtpVerfication> {
               Center(
                 child: CustomButtom(
                   text: "Send  Code",
-                  onTap: ()=>CreateNewPasswordRoute().go(context),
+                  height: 50,
+                  width: 342,
+                  onTap: () => CreateNewPasswordRoute().push(context),
                 ),
               ),
             ],

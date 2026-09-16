@@ -78,12 +78,16 @@ class OnboardingPageWidget extends StatelessWidget {
               ),
               Spacer(flex: 3),
               CustomButtom(
-                onTap: isLast ? () => ChooseRoleRoute().go(context) : callBack,
+                height: 50,
+                width: 342,
+                onTap: isLast
+                    ? () => ChooseRoleRoute().push(context)
+                    : callBack,
                 text: isLast ? "Get Started" : "Next",
               ),
               Gap(12),
               InkWell(
-                onTap: () => ChooseRoleRoute().go(context),
+                onTap: () => ChooseRoleRoute().push(context),
                 child: Text("Skip", style: context.medium14),
               ),
               Spacer(),

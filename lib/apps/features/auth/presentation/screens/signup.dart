@@ -1,6 +1,6 @@
-
 import 'package:doctor_hunt/apps/core/router/router.dart';
 import 'package:doctor_hunt/apps/core/utils/app_images.dart';
+import 'package:doctor_hunt/apps/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widget/custom_form_field.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
@@ -42,7 +42,7 @@ class _SignupState extends State<Signup> {
   XFile? image;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AppScaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(18),
@@ -93,8 +93,10 @@ class _SignupState extends State<Signup> {
                   Gap(28),
                   CustomButtom(
                     text: "Sign Up",
+                    height: 50,
+                    width: 342,
                     onTap: () {
-                      LoginRoute().go(context);
+                      LoginRoute().push(context);
                     },
                   ),
                   Gap(8),
@@ -106,7 +108,7 @@ class _SignupState extends State<Signup> {
                         style: context.semiBold14TextSub,
                       ),
                       GestureDetector(
-                        onTap: () => LoginRoute().go(context),
+                        onTap: () => LoginRoute().push(context),
                         child: Text(
                           "Log in",
                           style: context.semiBold14PrimaryDark,

@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/apps/core/router/router.dart';
 import 'package:doctor_hunt/apps/core/utils/app_images.dart';
+import 'package:doctor_hunt/apps/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widget/custom_form_field.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
@@ -22,9 +23,10 @@ class _LoginState extends State<Login> {
     password.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AppScaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(18),
@@ -50,7 +52,7 @@ class _LoginState extends State<Login> {
                 Align(
                   alignment: AlignmentGeometry.centerRight,
                   child: GestureDetector(
-                    onTap: () => ForgetPasswordRoute().go(context),
+                    onTap: () => ForgetPasswordRoute().push(context),
                     child: Text(
                       "Forget Password....?",
                       style: context.medium14Primary,
@@ -58,7 +60,12 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 Gap(31),
-                CustomButtom(text: "Log In", onTap: ()=>HomeRoute().go(context)),
+                CustomButtom(
+                  text: "Log In",
+                  height: 50,
+                  width: 342,
+                  onTap: () => HomeRoute().push(context),
+                ),
                 Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -68,7 +75,7 @@ class _LoginState extends State<Login> {
                       style: context.semiBold14TextPlaceholder,
                     ),
                     GestureDetector(
-                      onTap: () => SignupRoute().go(context),
+                      onTap: () => SignupRoute().push(context),
                       child: Text(
                         "Sign up now",
                         style: context.semiBold14PrimaryDark,

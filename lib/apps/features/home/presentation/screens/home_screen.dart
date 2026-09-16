@@ -1,5 +1,7 @@
 import 'package:doctor_hunt/apps/core/models/doctor_model.dart';
-import 'package:doctor_hunt/apps/features/home/presentation/controller/dummy_data.dart';
+import 'package:doctor_hunt/apps/core/network/test/dummy_data.dart';
+import 'package:doctor_hunt/apps/core/router/router.dart';
+import 'package:doctor_hunt/apps/core/widgets/app_back_ground.dart';
 import 'package:doctor_hunt/apps/features/home/presentation/widget/doctor_section.dart';
 import 'package:doctor_hunt/apps/features/home/presentation/widget/feature_doctor_card.dart';
 import 'package:doctor_hunt/apps/features/home/presentation/widget/greeting_header.dart';
@@ -97,7 +99,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: dummyDoctor.length,
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.only(left: 10),
-                      child: PopularDoctorCard(doctorModel: dummyDoctor[index]),
+                      child: InkWell(
+                        onTap: () => DoctorDetailsRout(
+                          doctorId: dummyDoctor[index].id,
+                        ).push(context),
+                        child: PopularDoctorCard(
+                          doctorModel: dummyDoctor[index],
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -115,7 +124,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: dummyDoctor.length,
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.only(left: 10),
-                      child: FeatureDoctorCard(doctorModel: dummyDoctor[index]),
+                      child: InkWell(
+                        onTap: () => DoctorDetailsRout(
+                          doctorId: dummyDoctor[index].id,
+                        ).push(context),
+                        child: FeatureDoctorCard(
+                          doctorModel: dummyDoctor[index],
+                        ),
+                      ),
                     ),
                   ),
                 ),
