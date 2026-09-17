@@ -3,6 +3,7 @@ import 'package:doctor_hunt/apps/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widget/auth_app_bar.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widget/custom_pin_put.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
@@ -27,17 +28,18 @@ class _OtpVerficationState extends State<OtpVerfication> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      appBar: AuthAppBar(text: "Cancel"),
+      appBar: AuthAppBar(text: tr.otpVerification.cancel),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("OTP Verfication", style: context.bold28Primary),
+              Text(tr.otpVerification.title, style: context.bold28Primary),
+              
               Gap(6),
               Text(
-                "Please enter the 4 digit code sent your phone number",
+                tr.otpVerification.sub,
                 style: context.medium24TextSub,
               ),
               Gap(50),
@@ -45,7 +47,7 @@ class _OtpVerficationState extends State<OtpVerfication> {
               Gap(80),
               Center(
                 child: CustomButtom(
-                  text: "Send  Code",
+                  text: tr.otpVerification.button,
                   height: 50,
                   width: 342,
                   onTap: () => CreateNewPasswordRoute().push(context),

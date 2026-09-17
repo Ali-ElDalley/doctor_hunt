@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,11 +18,11 @@ class GreetingHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Hi Handwerker! ",
+                tr.home.greeting,
                 style: GoogleFonts.rubik(textStyle: context.regular20White),
               ),
               Text(
-                "Find Your Doctor",
+                tr.home.title,
                 style: GoogleFonts.rubik(textStyle: context.bold26White),
               ),
             ],

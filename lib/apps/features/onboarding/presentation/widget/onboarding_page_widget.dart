@@ -2,6 +2,7 @@ import 'package:doctor_hunt/apps/core/router/router.dart';
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/apps/features/onboarding/presentation/widget/onboarding_background.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
@@ -83,12 +84,12 @@ class OnboardingPageWidget extends StatelessWidget {
                 onTap: isLast
                     ? () => ChooseRoleRoute().push(context)
                     : callBack,
-                text: isLast ? "Get Started" : "Next",
+                text: isLast ? tr.onboarding.getStarted : tr.onboarding.next,
               ),
               Gap(12),
               InkWell(
                 onTap: () => ChooseRoleRoute().push(context),
-                child: Text("Skip", style: context.medium14),
+                child: Text(tr.onboarding.skip, style: context.medium14),
               ),
               Spacer(),
             ],

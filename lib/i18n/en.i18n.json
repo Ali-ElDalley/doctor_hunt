@@ -1,0 +1,97 @@
+{
+    "onboarding":{
+        "next":"Next",
+        "skip":"Skip",
+        "getStarted":"Get Started",
+        "onboarding1":{
+        "title":"Find Trusted Doctors",
+        "sub":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old."
+    },
+    "onboarding2":{
+        "title":"Choose Best Doctors",
+        "sub":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old."
+    },
+    "onboarding3":{
+        "title":"Easy Appointments",
+        "sub":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old."
+    }
+    },
+    "chooseRole":{
+        "button":"Continue",
+        "title":"Choose your role",
+        "sub":"The selected role determines the experience and available features",
+        "patient":{
+        "title":"Patient",
+        "sub":"Find doctors, book appointments, and manage your medical records."
+        },
+        "admin":{
+        "title":"Admin",
+        "sub":"Manage doctors, appointments, users, and the platform."
+        }
+    },
+    "logIn":{
+        "title":"Log In",
+        "email":"Email",
+        "emailHint":"Enter your email address",
+        "password":"Password",
+        "forgetPassword":"Forget Password...?",
+        "button":"Log In",
+        "noAccount":"Don’t have an account",
+        "signUp":"Sign Up now"
+    },
+    "signUp":{
+        "title":"Sign Up",
+        "name":"Name",
+        "nameHint":"Enter your full name",
+        "email":"Email",
+        "emailHint":"Enter your email address",
+        "password":"Password",
+        "passwordHint":"Enter your password",
+        "confirmPassword":"Confirm Password",
+        "confirmPasswordHint":"Re-enter your password",
+        "button":"Sign Up",
+        "haveAccount":"Already have an account?",
+        "logIn":"Log In"
+    },
+    "forgetPassword":{
+        "title":"Forget Your Password ?",
+        "sub":"Please enter the email address associated with your account. We will send you an OTP to reset your password.",
+        "email":"Email",
+        "emailHint":"Enter your email address",
+        "sendCode":"Send Code",
+        "back":"Back",
+        "button":"Send Code"
+    },
+    "otpVerification":{
+        "title":"OTP Verification",
+        "sub":"Please enter the 5-digit code sent to your email address.",
+        "cancel":"Cancel",
+        "button":"Verify"
+    },
+    "createNewPassword":{
+        "title":"Create New Password",
+        "password":"Password",
+        "confirmPassword":"Confirm Password",
+        "confirmPasswordHint":"Re-enter your password",
+        "cancel":"Cancel",
+        "button":"Submit"
+    },
+    "home":{
+        "greeting":"Hi, {name}!",
+        "title":"Find Your Doctor",
+        "search":"Search",
+        "liveDoctors":"Live Doctors",
+        "popularDoctors":"Popular Doctor",
+        "featureDoctors":"Feature Doctor",
+        "viewAll":"View All"
+    },
+    "doctorDetails":{
+        "title":"Doctor Details",
+        "running":"Running",
+        "ongoing":"Ongoing",
+        "patient":"Patient",
+        "services":"Services",
+        "hour":"/Hour",
+        "bookNow":"Book Now"
+    }
+}

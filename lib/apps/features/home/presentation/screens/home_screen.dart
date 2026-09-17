@@ -1,7 +1,6 @@
 import 'package:doctor_hunt/apps/core/models/doctor_model.dart';
 import 'package:doctor_hunt/apps/core/network/test/dummy_data.dart';
 import 'package:doctor_hunt/apps/core/router/router.dart';
-import 'package:doctor_hunt/apps/core/widgets/app_back_ground.dart';
 import 'package:doctor_hunt/apps/features/home/presentation/widget/doctor_section.dart';
 import 'package:doctor_hunt/apps/features/home/presentation/widget/feature_doctor_card.dart';
 import 'package:doctor_hunt/apps/features/home/presentation/widget/greeting_header.dart';
@@ -9,6 +8,7 @@ import 'package:doctor_hunt/apps/features/home/presentation/widget/home_appbar_b
 import 'package:doctor_hunt/apps/features/home/presentation/widget/live_card.dart';
 import 'package:doctor_hunt/apps/features/home/presentation/widget/popular_doctor_card.dart';
 import 'package:doctor_hunt/apps/features/home/presentation/widget/search_box.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: padding,
               child: DoctorSection(
-                title: "Live Doctors",
+                title: tr.home.liveDoctors,
                 child: SizedBox(
                   height: 170,
                   child: ListView.builder(
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: padding,
               child: DoctorSection(
-                title: "Popular Doctor",
+                title: tr.home.popularDoctors,
                 onSeeAll: () {},
                 child: SizedBox(
                   height: 280,
@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: padding,
               child: DoctorSection(
-                title: "Feature Doctor",
+                title: tr.home.featureDoctors,
                 onSeeAll: () {},
                 child: SizedBox(
                   height: 150,

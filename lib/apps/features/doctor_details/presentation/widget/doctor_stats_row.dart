@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/apps/core/models/doctor_model.dart';
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/apps/features/doctor_details/presentation/widget/doctor_stat_item.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class DoctorStatsRow extends StatelessWidget {
@@ -26,9 +27,9 @@ class DoctorStatsRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          DoctorStatItem(stat: "Runing", count: doctor.runningCount),
-          DoctorStatItem(stat: "Ongoing", count: doctor.ongoingCount),
-          DoctorStatItem(stat: "Patient", count: doctor.patientCount),
+          DoctorStatItem(stat: tr.doctorDetails.running, count: doctor.runningCount),
+          DoctorStatItem(stat: tr.doctorDetails.ongoing, count: doctor.ongoingCount),
+          DoctorStatItem(stat: tr.doctorDetails.patient, count: doctor.patientCount),
         ],
       ),
     );

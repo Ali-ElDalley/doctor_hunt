@@ -3,6 +3,7 @@ import 'package:doctor_hunt/apps/core/utils/app_images.dart';
 import 'package:doctor_hunt/apps/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/apps/features/auth/presentation/widget/custom_form_field.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
@@ -16,24 +17,15 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  TextEditingController firstName = TextEditingController();
-
-  TextEditingController lastName = TextEditingController();
-
+  TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
-
-  TextEditingController phone = TextEditingController();
-
   TextEditingController password = TextEditingController();
-
   TextEditingController confirmPassword = TextEditingController();
 
   @override
   void dispose() {
-    firstName.dispose();
-    lastName.dispose();
+    name.dispose();
     email.dispose();
-    phone.dispose();
     password.dispose();
     confirmPassword.dispose();
     super.dispose();
@@ -51,48 +43,37 @@ class _SignupState extends State<Signup> {
               child: Column(
                 children: [
                   Center(child: Image.asset(AppImages.logo)),
-                  Center(child: Text("Sign Up", style: context.bold36Primary)),
+                  Center(child: Text(tr.signUp.title, style: context.bold36Primary)),
                   Gap(71),
                   CustomFormField(
-                    controller: firstName,
-                    lable: "First Name",
-                    hint: " Enter your First Name",
-                  ),
-                  Gap(16),
-                  CustomFormField(
-                    controller: lastName,
-                    lable: "Last Name",
-                    hint: "Enter your Last Name",
+                    controller: name,
+                    lable: tr.signUp.name,
+                    hint: tr.signUp.nameHint,
                   ),
                   Gap(16),
                   CustomFormField(
                     controller: email,
-                    lable: "Email",
-                    hint: "Enter your email address",
+                    lable: tr.signUp.email,
+                    hint: tr.signUp.emailHint,
                   ),
-                  Gap(16),
-                  CustomFormField(
-                    controller: phone,
-                    lable: "Phone",
-                    hint: "Enter your Phone ",
-                  ),
+                
                   Gap(16),
                   CustomFormField(
                     controller: password,
-                    lable: "Password",
-                    hint: "********",
+                    lable: tr.signUp.password,
+                    hint: tr.signUp.passwordHint,
                     isPassword: true,
                   ),
                   Gap(16),
                   CustomFormField(
                     controller: confirmPassword,
-                    lable: "Confirm Password",
-                    hint: "********",
+                    lable: tr.signUp.confirmPassword,
+                    hint: tr.signUp.confirmPasswordHint,
                     isPassword: true,
                   ),
                   Gap(28),
                   CustomButtom(
-                    text: "Sign Up",
+                    text: tr.signUp.button,
                     height: 50,
                     width: 342,
                     onTap: () {
@@ -104,13 +85,13 @@ class _SignupState extends State<Signup> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Have an account already?  ",
+                        tr.signUp.haveAccount,
                         style: context.semiBold14TextSub,
                       ),
                       GestureDetector(
                         onTap: () => LoginRoute().push(context),
                         child: Text(
-                          "Log in",
+                          tr.signUp.logIn,
                           style: context.semiBold14PrimaryDark,
                         ),
                       ),

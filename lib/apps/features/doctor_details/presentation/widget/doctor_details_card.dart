@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/apps/core/models/doctor_model.dart';
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -117,7 +118,7 @@ class DoctorDetailsCard extends StatelessWidget {
               ),
             ],
           ),
-          CustomButtom(text: "Book Now", width: 140, height: 32),
+          CustomButtom(text: tr.doctorDetails.bookNow, width: 140, height: 32),
         ],
       ),
     );

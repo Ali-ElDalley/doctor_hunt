@@ -6,6 +6,7 @@ import 'package:doctor_hunt/apps/core/widgets/app_app_bar.dart';
 import 'package:doctor_hunt/apps/core/widgets/app_scaffold.dart';
 import 'package:doctor_hunt/apps/features/doctor_details/presentation/widget/doctor_details_card.dart';
 import 'package:doctor_hunt/apps/features/doctor_details/presentation/widget/doctor_stats_row.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
@@ -21,7 +22,7 @@ class DoctorDetailsScreen extends StatelessWidget {
       (a) => a.id == doctorId,
     );
     return AppScaffold(
-      appBar: AppAppBar(title: "Doctor Details", searchButton: true),
+      appBar: AppAppBar(title: tr.doctorDetails.title, searchButton: true),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 34),
         child: Column(
@@ -32,7 +33,7 @@ class DoctorDetailsScreen extends StatelessWidget {
             Center(child: DoctorStatsRow(doctor: doctor)),
             Gap(26),
             Text(
-              "Services",
+              tr.doctorDetails.services,
               style: GoogleFonts.rubik(textStyle: context.bold20Black),
             ),
             Gap(18),

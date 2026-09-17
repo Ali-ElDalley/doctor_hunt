@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/apps/core/utils/app_images.dart';
 import 'package:doctor_hunt/apps/features/onboarding/presentation/widget/onboarding_page_widget.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -21,24 +22,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   late List<OnboardingData> onboardingData = [
     OnboardingData(
       imagePath: "${AppImages.onboarding}onboarding1.png",
-      title: "Find Trusted Doctors",
-      description:
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.",
+      title: tr.onboarding.onboarding1.title,
+      description: tr.onboarding.onboarding1.sub,
       circlePosition: CirclePosition.left,
     ),
 
     OnboardingData(
       imagePath: "${AppImages.onboarding}onboarding2.png",
-      title: "Choose Best Doctors",
-      description:
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.",
+       title: tr.onboarding.onboarding2.title,
+      description: tr.onboarding.onboarding2.sub,
       circlePosition: CirclePosition.right,
     ),
     OnboardingData(
       imagePath: "${AppImages.onboarding}onboarding3.png",
-      title: "Easy Appointments",
-      description:
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.",
+       title: tr.onboarding.onboarding3.title,
+      description: tr.onboarding.onboarding3.sub,
       circlePosition: CirclePosition.left,
     ),
   ];

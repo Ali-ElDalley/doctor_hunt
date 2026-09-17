@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
+import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
@@ -30,7 +31,7 @@ class SearchBox extends StatelessWidget {
             width: 280,
             child: TextField(
               decoration: InputDecoration(
-                hintText: 'Search......',
+                hintText: tr.home.search,
                 hintStyle: context.regular14TextPlaceholder,
                 border: InputBorder.none,
                 isDense: true,
