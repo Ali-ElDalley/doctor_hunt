@@ -1,26 +1,25 @@
-import 'package:doctor_hunt/apps/core/models/doctor_model.dart';
-import 'package:doctor_hunt/apps/features/doctor_details/presentation/screens/doctor_details_screen.dart';
+import 'package:doctor_hunt/apps/features/patient/doctor_details/presentation/screens/doctor_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // Onboarding
-import 'package:doctor_hunt/apps/features/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:doctor_hunt/apps/features/common/onboarding/presentation/screens/onboarding_screen.dart';
 
 // Choose Role
-import 'package:doctor_hunt/apps/features/auth/presentation/screens/choose_role_screen.dart';
+import 'package:doctor_hunt/apps/features/common/choose_role/presentation/screens/choose_role_screen.dart';
 
 // Auth
-import 'package:doctor_hunt/apps/features/auth/presentation/screens/login.dart';
-import 'package:doctor_hunt/apps/features/auth/presentation/screens/signup.dart';
-import 'package:doctor_hunt/apps/features/auth/presentation/screens/forget_password.dart';
-import 'package:doctor_hunt/apps/features/auth/presentation/screens/otp_verfication.dart';
-import 'package:doctor_hunt/apps/features/auth/presentation/screens/create_new_password.dart';
+import 'package:doctor_hunt/apps/features/common/auth/presentation/screens/login.dart';
+import 'package:doctor_hunt/apps/features/common/auth/presentation/screens/signup.dart';
+import 'package:doctor_hunt/apps/features/common/auth/presentation/screens/forget_password.dart';
+import 'package:doctor_hunt/apps/features/common/auth/presentation/screens/otp_verfication.dart';
+import 'package:doctor_hunt/apps/features/common/auth/presentation/screens/create_new_password.dart';
 
 // Home
-import 'package:doctor_hunt/apps/features/home/presentation/screens/home_screen.dart';
+import 'package:doctor_hunt/apps/features/patient/home/presentation/screens/home_screen.dart';
 
 // Root
-import 'package:doctor_hunt/apps/features/main/screens/root.dart';
+import 'package:doctor_hunt/apps/features/patient/main/presentation/screens/root.dart';
 
 part 'router.g.dart';
 
