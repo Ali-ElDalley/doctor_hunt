@@ -9,6 +9,7 @@ import 'package:doctor_hunt/apps/features/doctor_details/presentation/widget/doc
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,7 +25,7 @@ class DoctorDetailsScreen extends StatelessWidget {
     return AppScaffold(
       appBar: AppAppBar(title: tr.doctorDetails.title, searchButton: true),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 34),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 34.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -38,8 +39,8 @@ class DoctorDetailsScreen extends StatelessWidget {
             ),
             Gap(18),
             SizedBox(
-              width: 500,
-              height: 200,
+              width: 500.w,
+              height: 145.h,
               child: ListView.builder(
                 shrinkWrap: true,
                 primary: false,
@@ -52,7 +53,9 @@ class DoctorDetailsScreen extends StatelessWidget {
                     RichText(
                       text: TextSpan(
                         style: GoogleFonts.rubik(
-                          textStyle: context.medium14TextSub,
+                          textStyle: context.medium12TextSub.copyWith(
+                            fontSize: 12.sp,
+                          ),
                         ),
                         children: [
                           TextSpan(
@@ -69,10 +72,9 @@ class DoctorDetailsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Gap(10),
             Expanded(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.all(10.w),
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
@@ -81,11 +83,13 @@ class DoctorDetailsScreen extends StatelessWidget {
                       offset: const Offset(0, 4),
                     ),
                   ],
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10.r),
                   color: AppColors.white,
                 ),
                 child: Image.asset(
                   "${AppImages.test}map.png",
+                  width: 318.w,
+                  height: 200.h,
                   fit: BoxFit.cover,
                 ),
               ),

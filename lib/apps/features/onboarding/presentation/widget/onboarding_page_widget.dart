@@ -5,6 +5,7 @@ import 'package:doctor_hunt/apps/features/onboarding/presentation/widget/onboard
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -57,7 +58,7 @@ class OnboardingPageWidget extends StatelessWidget {
               ),
               Spacer(flex: 2),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 60),
+                padding: EdgeInsets.symmetric(horizontal: 49.w),
                 child: Column(
                   children: [
                     Text(
@@ -79,8 +80,8 @@ class OnboardingPageWidget extends StatelessWidget {
               ),
               Spacer(flex: 3),
               CustomButtom(
-                height: 50,
-                width: 342,
+                height: 54.h,
+                width: 295.w,
                 onTap: isLast
                     ? () => ChooseRoleRoute().push(context)
                     : callBack,

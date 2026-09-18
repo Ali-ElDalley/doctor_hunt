@@ -2,6 +2,7 @@ import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/apps/core/utils/app_images.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LiveCard extends StatelessWidget {
   final String image;
@@ -12,10 +13,10 @@ class LiveCard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: 117,
-          height: 168,
+          width: 117.w,
+          height: 168.h,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(6),
+            borderRadius: BorderRadius.circular(6.r),
             boxShadow: [
               BoxShadow(
                 color: AppColors.boxShadow.withValues(alpha: 0.05),
@@ -41,11 +42,11 @@ class LiveCard extends StatelessWidget {
           right: 10,
           top: 10,
           child: Container(
-            width: 40,
-            height: 18,
+            width: 40.w,
+            height: 18.h,
             decoration: BoxDecoration(
               color: AppColors.danger,
-              borderRadius: BorderRadius.circular(3),
+              borderRadius: BorderRadius.circular(3.r),
             ),
             child: Row(
               spacing: 3,

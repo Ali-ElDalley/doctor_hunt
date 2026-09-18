@@ -2,6 +2,7 @@ import 'package:doctor_hunt/apps/core/models/doctor_model.dart';
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,10 +14,10 @@ class PopularDoctorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 190,
-      height: 280,
+      width: 190.w,
+      height: 280.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
             color: AppColors.boxShadow.withValues(alpha: 0.05),
@@ -28,10 +29,10 @@ class PopularDoctorCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 190,
-            height: 180,
+            width: 190.w,
+            height: 180.h,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               boxShadow: [
                 BoxShadow(
                   color: AppColors.boxShadow.withValues(alpha: 0.05),

@@ -6,6 +6,7 @@ import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -37,13 +38,15 @@ class _SignupState extends State<Signup> {
     return AppScaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(18),
+          padding: EdgeInsets.all(18.w),
           child: Form(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   Center(child: Image.asset(AppImages.logo)),
-                  Center(child: Text(tr.signUp.title, style: context.bold36Primary)),
+                  Center(
+                    child: Text(tr.signUp.title, style: context.bold36Primary),
+                  ),
                   Gap(71),
                   CustomFormField(
                     controller: name,
@@ -56,7 +59,7 @@ class _SignupState extends State<Signup> {
                     lable: tr.signUp.email,
                     hint: tr.signUp.emailHint,
                   ),
-                
+
                   Gap(16),
                   CustomFormField(
                     controller: password,
@@ -74,8 +77,8 @@ class _SignupState extends State<Signup> {
                   Gap(28),
                   CustomButtom(
                     text: tr.signUp.button,
-                    height: 50,
-                    width: 342,
+                    height: 50.h,
+                    width: 342.w,
                     onTap: () {
                       LoginRoute().push(context);
                     },

@@ -6,6 +6,7 @@ import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 
 class Login extends StatefulWidget {
@@ -30,7 +31,7 @@ class _LoginState extends State<Login> {
     return AppScaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(18),
+          padding:  EdgeInsets.all(18.w),
           child: Form(
             child: Column(
               children: [
@@ -65,8 +66,8 @@ class _LoginState extends State<Login> {
                 Gap(31),
                 CustomButtom(
                   text: tr.logIn.title,
-                  height: 50,
-                  width: 342,
+                  height: 50.h,
+                  width: 342.w,
                   onTap: () => HomeRoute().push(context),
                 ),
                 Spacer(),

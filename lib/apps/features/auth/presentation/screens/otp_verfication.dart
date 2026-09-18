@@ -6,6 +6,7 @@ import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 
 class OtpVerfication extends StatefulWidget {
@@ -31,25 +32,22 @@ class _OtpVerficationState extends State<OtpVerfication> {
       appBar: AuthAppBar(text: tr.otpVerification.cancel),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding:  EdgeInsets.all(20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(tr.otpVerification.title, style: context.bold28Primary),
-              
+
               Gap(6),
-              Text(
-                tr.otpVerification.sub,
-                style: context.medium24TextSub,
-              ),
+              Text(tr.otpVerification.sub, style: context.medium24TextSub),
               Gap(50),
               CustomPinPut(controller: pinPut),
               Gap(80),
               Center(
                 child: CustomButtom(
                   text: tr.otpVerification.button,
-                  height: 50,
-                  width: 342,
+                  height: 50.h,
+                  width: 342.w,
                   onTap: () => CreateNewPasswordRoute().push(context),
                 ),
               ),

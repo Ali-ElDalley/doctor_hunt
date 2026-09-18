@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DoctorStatItem extends StatelessWidget {
@@ -11,10 +12,10 @@ class DoctorStatItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 90,
-      height: 64,
+      width: 90.w,
+      height: 64.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         color: AppColors.boxShadow.withValues(alpha: 0.05),
       ),
       child: Column(

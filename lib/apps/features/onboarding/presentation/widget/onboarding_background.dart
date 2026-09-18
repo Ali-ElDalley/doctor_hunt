@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnboardingBackground extends StatelessWidget {
   final bool isLeft;
@@ -16,8 +17,8 @@ class OnboardingBackground extends StatelessWidget {
           left: isLeft ? -120 : null,
           right: isLeft ? null : -120,
           child: Container(
-            width: 342,
-            height: 342,
+            width: 342.w,
+            height: 342.h,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [AppColors.primaryDark, AppColors.primaryLight],

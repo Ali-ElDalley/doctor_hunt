@@ -6,6 +6,7 @@ import 'package:doctor_hunt/apps/features/auth/presentation/widget/role_card.dar
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,7 +24,7 @@ class _ChooseRoleScreenState extends State<ChooseRoleScreen> {
     return AppScaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(20.w),
           child: Center(
             child: Column(
               children: [
@@ -70,8 +71,8 @@ class _ChooseRoleScreenState extends State<ChooseRoleScreen> {
                 Spacer(),
                 CustomButtom(
                   text: tr.chooseRole.button,
-                  height: 56,
-                  width: 350,
+                  height: 56.h,
+                  width: 350.w,
                   onTap: () => LoginRoute().push(context),
                 ),
                 Gap(20),

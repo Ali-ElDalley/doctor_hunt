@@ -4,6 +4,8 @@ import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gap/flutter_gap.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,8 +16,8 @@ class DoctorDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
-      height: 170,
+      width: 400.w,
+      height: 170.h,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -24,10 +26,15 @@ class DoctorDetailsCard extends StatelessWidget {
             offset: const Offset(0, 4),
           ),
         ],
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.r),
         color: AppColors.white,
       ),
-      padding: EdgeInsets.only(top: 18, bottom: 18, left: 19, right: 12),
+      padding: EdgeInsets.only(
+        top: 18.h,
+        bottom: 18.h,
+        left: 19.w,
+        right: 12.w,
+      ),
       child: Column(
         spacing: 15,
         children: [
@@ -35,17 +42,17 @@ class DoctorDetailsCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 92,
-                height: 87,
+                width: 92.w,
+                height: 87.h,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadiusGeometry.circular(8),
+                  borderRadius: BorderRadiusGeometry.circular(8.r),
                   child: Image.network(doctor.imageUrl),
                 ),
               ),
-              const SizedBox(width: 12),
+              SizedBox(width: 12.w),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,7 +73,7 @@ class DoctorDetailsCard extends StatelessWidget {
                               doctor.specialty,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.rubik(
-                                textStyle: context.regular12TextSub,
+                                textStyle: context.regular16TextSub,
                               ),
                             ),
                           ],
@@ -75,16 +82,17 @@ class DoctorDetailsCard extends StatelessWidget {
                         doctor.isFavorite
                             ? Icon(
                                 Icons.favorite,
-                                size: 20,
+                                size: 30,
                                 color: AppColors.danger,
                               )
                             : Icon(
                                 Icons.favorite_outline,
-                                size: 20,
+                                size: 30,
                                 color: AppColors.textSub,
                               ),
                       ],
                     ),
+                    Gap(10),
                     Row(
                       children: [
                         RatingBarIndicator(
@@ -92,14 +100,14 @@ class DoctorDetailsCard extends StatelessWidget {
                               const Icon(Icons.star, color: Colors.amber),
                           rating: doctor.rating,
                           itemCount: 5,
-                          itemSize: 18,
+                          itemSize: 22,
                           unratedColor: Colors.grey.shade300,
                         ),
                         const Spacer(),
                         RichText(
                           text: TextSpan(
                             style: GoogleFonts.rubik(
-                              textStyle: context.regular11TextSub,
+                              textStyle: context.regular16TextSub,
                             ),
                             children: [
                               TextSpan(
@@ -107,7 +115,7 @@ class DoctorDetailsCard extends StatelessWidget {
                                 style: TextStyle(color: AppColors.primary),
                               ),
                               TextSpan(text: doctor.pricePerHour.toString()),
-                              const TextSpan(text: "/Hours"),
+                              TextSpan(text: tr.doctorDetails.hour),
                             ],
                           ),
                         ),
@@ -118,7 +126,11 @@ class DoctorDetailsCard extends StatelessWidget {
               ),
             ],
           ),
-          CustomButtom(text: tr.doctorDetails.bookNow, width: 140, height: 32),
+          CustomButtom(
+            text: tr.doctorDetails.bookNow,
+            width: 140.w,
+            height: 32.h,
+          ),
         ],
       ),
     );

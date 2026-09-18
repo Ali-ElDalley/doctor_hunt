@@ -2,6 +2,7 @@ import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 
 class SearchBox extends StatelessWidget {
@@ -10,11 +11,12 @@ class SearchBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 54,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      width: 335.w,
+      height: 54.h,
+      padding: EdgeInsetsDirectional.only(start: 16.w, end: 12.w),
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(6.r),
         boxShadow: [
           BoxShadow(
             color: AppColors.boxShadow.withValues(alpha: 0.05),
@@ -28,7 +30,7 @@ class SearchBox extends StatelessWidget {
           Icon(Icons.search, color: AppColors.textPlaceholder),
           Gap(8),
           SizedBox(
-            width: 280,
+            width: 245.w,
             child: TextField(
               decoration: InputDecoration(
                 hintText: tr.home.search,
@@ -38,6 +40,7 @@ class SearchBox extends StatelessWidget {
               ),
             ),
           ),
+          Spacer(),
           Icon(Icons.close, color: AppColors.textPlaceholder),
         ],
       ),

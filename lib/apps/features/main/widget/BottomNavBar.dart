@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -21,7 +22,7 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding:  EdgeInsets.symmetric(vertical: 12.h),
       decoration: const BoxDecoration(color: AppColors.white),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -31,7 +32,7 @@ class BottomNavBar extends StatelessWidget {
             onTap: () => onTap(index),
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 200),
-              padding: const EdgeInsets.all(12),
+              padding:  EdgeInsets.all(12.w),
               decoration: BoxDecoration(
                 color: isSelected ? AppColors.primary : Colors.transparent,
                 shape: BoxShape.circle,

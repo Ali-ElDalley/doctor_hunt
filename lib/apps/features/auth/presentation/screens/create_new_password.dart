@@ -6,6 +6,7 @@ import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 
 class CreateNewPassword extends StatelessWidget {
@@ -17,7 +18,7 @@ class CreateNewPassword extends StatelessWidget {
       appBar: AuthAppBar(text: tr.createNewPassword.cancel),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding:  EdgeInsets.all(20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -39,8 +40,8 @@ class CreateNewPassword extends StatelessWidget {
               Center(
                 child: CustomButtom(
                   text: tr.createNewPassword.button,
-                  height: 50,
-                  width: 342,
+                  height: 50.h,
+                  width: 342.w,
                   onTap: () => LoginRoute().push(context),
                 ),
               ),

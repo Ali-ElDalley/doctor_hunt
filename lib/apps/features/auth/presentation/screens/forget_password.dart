@@ -7,6 +7,7 @@ import 'package:doctor_hunt/apps/core/widgets/custom_buttom.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -24,7 +25,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       appBar: AuthAppBar(text: tr.forgetPassword.back),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,8 +42,8 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               Center(
                 child: CustomButtom(
                   text: tr.forgetPassword.sendCode,
-                  height: 50,
-                  width: 342,
+                  height: 50.h,
+                  width: 342.w,
                   onTap: () =>
                       OtpVerficationRoute(email: email.getText).push(context),
                 ),

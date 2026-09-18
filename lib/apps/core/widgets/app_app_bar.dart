@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,16 +16,16 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
+      padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
       child: AppBar(
         backgroundColor: Colors.transparent,
         leading: InkWell(
           onTap: () => context.pop(),
           child: Container(
-            height: 20,
-            width: 20,
+            height: 20.h,
+            width: 20.w,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               color: AppColors.white,
             ),
             child: Icon(Icons.arrow_back_ios_new, size: 18),

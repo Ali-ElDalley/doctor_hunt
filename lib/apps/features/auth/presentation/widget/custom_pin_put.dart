@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 
 class CustomPinPut extends StatefulWidget {
@@ -12,12 +13,12 @@ class CustomPinPut extends StatefulWidget {
 
 class _CustomPinPutState extends State<CustomPinPut> {
   final PinTheme defaultPinTheme = PinTheme(
-    height: 70,
-    width: 70,
+    height: 70.h,
+    width: 70.w,
     textStyle: TextStyle(fontSize: 24, color: AppColors.primary),
     decoration: BoxDecoration(
       color: Color.fromARGB(255, 190, 223, 219),
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(16.r),
     ),
   );
 

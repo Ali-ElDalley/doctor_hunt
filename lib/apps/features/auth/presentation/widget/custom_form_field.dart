@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 
 class CustomFormField extends StatefulWidget {
@@ -34,11 +35,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.lable,
-          style: context.medium16BoxShadow,
-          
-        ),
+        Text(widget.lable, style: context.medium16BoxShadow),
         Gap(6),
         TextFormField(
           controller: widget.controller,
@@ -58,17 +55,16 @@ class _CustomFormFieldState extends State<CustomFormField> {
                     ),
                   )
                 : null,
-            hint: Text(
-              widget.hint,
-              style: context.medium12TextSub,
+            hint: Text(widget.hint, style: context.medium12TextSub),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.r),
             ),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               borderSide: BorderSide(color: Colors.red),
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               borderSide: BorderSide(color: AppColors.primary),
             ),
           ),

@@ -10,6 +10,7 @@ import 'package:doctor_hunt/apps/features/home/presentation/widget/popular_docto
 import 'package:doctor_hunt/apps/features/home/presentation/widget/search_box.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,9 +21,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final EdgeInsetsGeometry padding = const EdgeInsets.symmetric(
-    horizontal: 40,
-    vertical: 20,
+  final EdgeInsetsGeometry padding = EdgeInsets.symmetric(
+    horizontal: 20.w,
+    vertical: 30.h,
   );
   final List catagory = DummyData.catagory;
   final List<DoctorModel> dummyDoctor = DummyData.dummyDoctors;
@@ -34,13 +35,18 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 220,
+              height: 220.h,
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
                   HomeAppbarBackground(),
                   GreetingHeader(),
-                  Positioned(top: 155, left: 40, right: 40, child: SearchBox()),
+                  Positioned(
+                    top: 155.h,
+                    left: 20.w,
+                    right: 20.w,
+                    child: SearchBox(),
+                  ),
                 ],
               ),
             ),
@@ -49,12 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
               child: DoctorSection(
                 title: tr.home.liveDoctors,
                 child: SizedBox(
-                  height: 170,
+                  height: 170.h,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: dummyDoctor.length,
                     itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: EdgeInsets.only(left: 10.w),
                       child: LiveCard(image: dummyDoctor[index].imageUrl),
                     ),
                   ),
@@ -64,17 +70,17 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: padding,
               child: SizedBox(
-                height: 100,
+                height: 100.h,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: catagory.length,
                   itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: EdgeInsets.only(left: 10.w),
                     child: Container(
-                      width: 90,
-                      padding: EdgeInsets.all(25),
+                      width: 90.w,
+                      padding: EdgeInsets.all(25.w),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.r),
                         gradient: LinearGradient(
                           begin: AlignmentGeometry.topLeft,
                           end: AlignmentGeometry.bottomRight,
@@ -93,12 +99,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: tr.home.popularDoctors,
                 onSeeAll: () {},
                 child: SizedBox(
-                  height: 280,
+                  height: 280.h,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: dummyDoctor.length,
                     itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: EdgeInsets.only(left: 10.w),
                       child: InkWell(
                         onTap: () => DoctorDetailsRout(
                           doctorId: dummyDoctor[index].id,
@@ -118,12 +124,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: tr.home.featureDoctors,
                 onSeeAll: () {},
                 child: SizedBox(
-                  height: 150,
+                  height: 150.h,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: dummyDoctor.length,
                     itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: EdgeInsets.only(left: 10.w),
                       child: InkWell(
                         onTap: () => DoctorDetailsRout(
                           doctorId: dummyDoctor[index].id,

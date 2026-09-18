@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RoleCard extends StatelessWidget {
@@ -19,13 +20,13 @@ class RoleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 360,
-      height: 170,
+      width: 335.w,
+      height: 164.h,
       decoration: BoxDecoration(
         color: isSelected
             ? AppColors.secondaryLight.withValues(alpha: 0.1)
             : AppColors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         border: Border.all(
           width: 2,
           color: isSelected ? AppColors.primaryDark : Color(0xffE6ECEA),
@@ -74,7 +75,7 @@ class RoleCard extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: 200,
+                      width: 200.w,
                       child: Text(
                         desc,
                         style: GoogleFonts.plusJakartaSans(
