@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/apps/core/models/doctor_model.dart';
+import 'package:doctor_hunt/apps/core/router/router.dart';
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/apps/core/widgets/app_button.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
@@ -126,7 +127,12 @@ class DoctorDetailsCard extends StatelessWidget {
               ),
             ],
           ),
-          AppButton(text: tr.doctorDetails.bookNow, width: 140.w, height: 32.h),
+          AppButton(
+            text: tr.doctorDetails.bookNow,
+            onTap: () => DoctorSelectTimeRoute(doctorId: doctor.id).push(context),
+            width: 140.w,
+            height: 32.h,
+          ),
         ],
       ),
     );

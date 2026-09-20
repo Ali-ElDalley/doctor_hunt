@@ -15,6 +15,7 @@ List<RouteBase> get $appRoutes => [
   $otpVerficationRoute,
   $createNewPasswordRoute,
   $doctorDetailsRout,
+  $doctorSelectTimeRoute,
   $mainShellRouteData,
 ];
 
@@ -225,6 +226,38 @@ mixin $DoctorDetailsRout on GoRouteData {
   @override
   String get location => GoRouteData.$location(
     '/doctorDetailsScreen',
+    queryParams: {'doctor-id': _self.doctorId},
+  );
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $doctorSelectTimeRoute => GoRouteData.$route(
+  path: '/doctorSelectTimeScreen',
+  hasOverriddenOnExit: false,
+  factory: $DoctorSelectTimeRoute._fromState,
+);
+
+mixin $DoctorSelectTimeRoute on GoRouteData {
+  static DoctorSelectTimeRoute _fromState(GoRouterState state) =>
+      DoctorSelectTimeRoute(doctorId: state.uri.queryParameters['doctor-id']!);
+
+  DoctorSelectTimeRoute get _self => this as DoctorSelectTimeRoute;
+
+  @override
+  String get location => GoRouteData.$location(
+    '/doctorSelectTimeScreen',
     queryParams: {'doctor-id': _self.doctorId},
   );
 

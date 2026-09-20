@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/apps/features/patient/doctor_details/presentation/screens/doctor_details_screen.dart';
+import 'package:doctor_hunt/apps/features/patient/doctor_select_time/presentation/screens/doctor_select_time_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -93,6 +94,16 @@ class DoctorDetailsRout extends GoRouteData with $DoctorDetailsRout {
   @override
   Widget build(BuildContext context, GoRouterState state) =>
        DoctorDetailsScreen(doctorId: doctorId,);
+}
+
+@TypedGoRoute<DoctorSelectTimeRoute>(path: '/doctorSelectTimeScreen')
+class DoctorSelectTimeRoute extends GoRouteData with $DoctorSelectTimeRoute {
+  final String doctorId;
+   DoctorSelectTimeRoute({required this.doctorId});
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      DoctorSelectTimeScreen(doctorId: doctorId);
 }
 
 @TypedStatefulShellRoute<MainShellRouteData>(
