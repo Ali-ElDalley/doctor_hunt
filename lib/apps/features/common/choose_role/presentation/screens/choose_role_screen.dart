@@ -8,7 +8,6 @@ import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ChooseRoleScreen extends StatefulWidget {
   const ChooseRoleScreen({super.key});
@@ -18,7 +17,7 @@ class ChooseRoleScreen extends StatefulWidget {
 }
 
 class _ChooseRoleScreenState extends State<ChooseRoleScreen> {
-  int selectedRole = 0;
+  String selectedRole = "patient";
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -30,42 +29,36 @@ class _ChooseRoleScreenState extends State<ChooseRoleScreen> {
               children: [
                 Image.asset(AppImages.logo),
                 Gap(50),
-                Text(
-                  tr.chooseRole.title,
-                  style: GoogleFonts.plusJakartaSans(
-                    textStyle: context.regular28Black,
-                  ),
-                ),
+                Text(tr.chooseRole.title, style: context.regular28Black),
                 Gap(10),
                 Text(
                   tr.chooseRole.sub,
-                  style: GoogleFonts.plusJakartaSans(
-                    textStyle: context.regular14TextSub,
-                  ),
+                  style: context.regular14TextSub,
+
                   textAlign: TextAlign.center,
                 ),
                 Gap(32),
                 InkWell(
                   onTap: () => setState(() {
-                    selectedRole = 0;
+                    selectedRole = "patient";
                   }),
                   child: RoleCard(
                     title: tr.chooseRole.patient.title,
                     desc: tr.chooseRole.patient.sub,
                     icon: Icons.person_outline,
-                    isSelected: selectedRole == 0,
+                    isSelected: selectedRole == "patient",
                   ),
                 ),
                 Gap(16),
                 InkWell(
                   onTap: () => setState(() {
-                    selectedRole = 1;
+                    selectedRole = "admin";
                   }),
                   child: RoleCard(
                     title: tr.chooseRole.admin.title,
                     desc: tr.chooseRole.admin.sub,
                     icon: Icons.grid_view_outlined,
-                    isSelected: selectedRole == 1,
+                    isSelected: selectedRole == "admin",
                   ),
                 ),
                 Spacer(),
@@ -73,7 +66,7 @@ class _ChooseRoleScreenState extends State<ChooseRoleScreen> {
                   text: tr.chooseRole.button,
                   height: 56.h,
                   width: 350.w,
-                  onTap: () => LoginRoute().push(context),
+                  onTap: () => LoginScreenRoute(role: selectedRole).push(context),
                 ),
                 Gap(20),
               ],

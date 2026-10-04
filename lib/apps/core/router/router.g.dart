@@ -9,11 +9,11 @@ part of 'router.dart';
 List<RouteBase> get $appRoutes => [
   $onboardingRoute,
   $chooseRoleRoute,
-  $loginRoute,
-  $signupRoute,
-  $forgetPasswordRoute,
-  $otpVerficationRoute,
-  $createNewPasswordRoute,
+  $loginScreenRoute,
+  $signupScreenRoute,
+  $forgetPasswordScreenRoute,
+  $otpScreenRoute,
+  $createNewPasswordScreenRoute,
   $doctorDetailsRout,
   $doctorSelectTimeRoute,
   $mainShellRouteData,
@@ -73,17 +73,21 @@ mixin $ChooseRoleRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $loginRoute => GoRouteData.$route(
-  path: '/login',
+RouteBase get $loginScreenRoute => GoRouteData.$route(
+  path: '/login/:role',
   hasOverriddenOnExit: false,
-  factory: $LoginRoute._fromState,
+  factory: $LoginScreenRoute._fromState,
 );
 
-mixin $LoginRoute on GoRouteData {
-  static LoginRoute _fromState(GoRouterState state) => const LoginRoute();
+mixin $LoginScreenRoute on GoRouteData {
+  static LoginScreenRoute _fromState(GoRouterState state) =>
+      LoginScreenRoute(role: state.pathParameters['role']!);
+
+  LoginScreenRoute get _self => this as LoginScreenRoute;
 
   @override
-  String get location => GoRouteData.$location('/login');
+  String get location =>
+      GoRouteData.$location('/login/${Uri.encodeComponent(_self.role)}');
 
   @override
   void go(BuildContext context) => context.go(location);
@@ -99,17 +103,18 @@ mixin $LoginRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $signupRoute => GoRouteData.$route(
-  path: '/signup',
+RouteBase get $signupScreenRoute => GoRouteData.$route(
+  path: '/signupScreen',
   hasOverriddenOnExit: false,
-  factory: $SignupRoute._fromState,
+  factory: $SignupScreenRoute._fromState,
 );
 
-mixin $SignupRoute on GoRouteData {
-  static SignupRoute _fromState(GoRouterState state) => const SignupRoute();
+mixin $SignupScreenRoute on GoRouteData {
+  static SignupScreenRoute _fromState(GoRouterState state) =>
+      const SignupScreenRoute();
 
   @override
-  String get location => GoRouteData.$location('/signup');
+  String get location => GoRouteData.$location('/signupScreen');
 
   @override
   void go(BuildContext context) => context.go(location);
@@ -125,15 +130,15 @@ mixin $SignupRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $forgetPasswordRoute => GoRouteData.$route(
+RouteBase get $forgetPasswordScreenRoute => GoRouteData.$route(
   path: '/forget-password',
   hasOverriddenOnExit: false,
-  factory: $ForgetPasswordRoute._fromState,
+  factory: $ForgetPasswordScreenRoute._fromState,
 );
 
-mixin $ForgetPasswordRoute on GoRouteData {
-  static ForgetPasswordRoute _fromState(GoRouterState state) =>
-      const ForgetPasswordRoute();
+mixin $ForgetPasswordScreenRoute on GoRouteData {
+  static ForgetPasswordScreenRoute _fromState(GoRouterState state) =>
+      const ForgetPasswordScreenRoute();
 
   @override
   String get location => GoRouteData.$location('/forget-password');
@@ -152,22 +157,24 @@ mixin $ForgetPasswordRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $otpVerficationRoute => GoRouteData.$route(
-  path: '/otp-verification',
+RouteBase get $otpScreenRoute => GoRouteData.$route(
+  path: '/otp-verification/:email',
   hasOverriddenOnExit: false,
-  factory: $OtpVerficationRoute._fromState,
+  factory: $OtpScreenRoute._fromState,
 );
 
-mixin $OtpVerficationRoute on GoRouteData {
-  static OtpVerficationRoute _fromState(GoRouterState state) =>
-      OtpVerficationRoute(email: state.uri.queryParameters['email']!);
+mixin $OtpScreenRoute on GoRouteData {
+  static OtpScreenRoute _fromState(GoRouterState state) => OtpScreenRoute(
+    email: state.pathParameters['email']!,
+    type: _$OtpFlowEnumMap._$fromName(state.uri.queryParameters['type']!)!,
+  );
 
-  OtpVerficationRoute get _self => this as OtpVerficationRoute;
+  OtpScreenRoute get _self => this as OtpScreenRoute;
 
   @override
   String get location => GoRouteData.$location(
-    '/otp-verification',
-    queryParams: {'email': _self.email},
+    '/otp-verification/${Uri.encodeComponent(_self.email)}',
+    queryParams: {'type': _$OtpFlowEnumMap[_self.type]},
   );
 
   @override
@@ -184,15 +191,25 @@ mixin $OtpVerficationRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $createNewPasswordRoute => GoRouteData.$route(
+const _$OtpFlowEnumMap = {
+  OtpFlow.signUp: 'sign-up',
+  OtpFlow.recovery: 'recovery',
+};
+
+extension<T extends Enum> on Map<T, String> {
+  T? _$fromName(String? value) =>
+      entries.where((element) => element.value == value).firstOrNull?.key;
+}
+
+RouteBase get $createNewPasswordScreenRoute => GoRouteData.$route(
   path: '/create-new-password',
   hasOverriddenOnExit: false,
-  factory: $CreateNewPasswordRoute._fromState,
+  factory: $CreateNewPasswordScreenRoute._fromState,
 );
 
-mixin $CreateNewPasswordRoute on GoRouteData {
-  static CreateNewPasswordRoute _fromState(GoRouterState state) =>
-      const CreateNewPasswordRoute();
+mixin $CreateNewPasswordScreenRoute on GoRouteData {
+  static CreateNewPasswordScreenRoute _fromState(GoRouterState state) =>
+      const CreateNewPasswordScreenRoute();
 
   @override
   String get location => GoRouteData.$location('/create-new-password');

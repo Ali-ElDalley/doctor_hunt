@@ -4,7 +4,6 @@ import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DoctorSelectCard extends StatelessWidget {
   final DoctorModel doctor;
@@ -56,9 +55,8 @@ class DoctorSelectCard extends StatelessWidget {
                   children: [
                     Text(
                       doctor.name,
-                      style: GoogleFonts.rubik(
-                        textStyle: context.semiBold18Black,
-                      ),
+                      style:  context.semiBold18Black,
+                      
                     ),
                     Spacer(),
                     doctor.isFavorite
@@ -78,7 +76,7 @@ class DoctorSelectCard extends StatelessWidget {
               Text(
                 doctor.specialty,
                 textAlign: TextAlign.left,
-                style: GoogleFonts.rubik(textStyle: context.regular16TextSub),
+                style:  context.regular16TextSub,
               ),
               RatingBarIndicator(
                 itemBuilder: (context, _) =>

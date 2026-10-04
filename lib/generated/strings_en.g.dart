@@ -157,12 +157,6 @@ class Translations$signUp$en {
 	/// en: 'Enter your password'
 	String get passwordHint => 'Enter your password';
 
-	/// en: 'Confirm Password'
-	String get confirmPassword => 'Confirm Password';
-
-	/// en: 'Re-enter your password'
-	String get confirmPasswordHint => 'Re-enter your password';
-
 	/// en: 'Sign Up'
 	String get button => 'Sign Up';
 
@@ -171,6 +165,9 @@ class Translations$signUp$en {
 
 	/// en: 'Log In'
 	String get logIn => 'Log In';
+
+	/// en: 'Password must be at least 8 characters'
+	String get passwordLength => 'Password must be at least 8 characters';
 }
 
 // Path: forgetPassword
@@ -201,6 +198,12 @@ class Translations$forgetPassword$en {
 
 	/// en: 'Send Code'
 	String get button => 'Send Code';
+
+	/// en: 'You can not leave this feild empty'
+	String get required => 'You can not leave this feild empty';
+
+	/// en: 'Please enter a valid email'
+	String get invalid => 'Please enter a valid email';
 }
 
 // Path: otpVerification
@@ -214,8 +217,8 @@ class Translations$otpVerification$en {
 	/// en: 'OTP Verification'
 	String get title => 'OTP Verification';
 
-	/// en: 'Please enter the 5-digit code sent to your email address.'
-	String get sub => 'Please enter the 5-digit code sent to your email address.';
+	/// en: 'Please enter the 6-digit code sent to your email address.'
+	String get sub => 'Please enter the 6-digit code sent to your email address.';
 
 	/// en: 'Cancel'
 	String get cancel => 'Cancel';
@@ -425,11 +428,10 @@ extension on Translations {
 			'signUp.emailHint' => 'Enter your email address',
 			'signUp.password' => 'Password',
 			'signUp.passwordHint' => 'Enter your password',
-			'signUp.confirmPassword' => 'Confirm Password',
-			'signUp.confirmPasswordHint' => 'Re-enter your password',
 			'signUp.button' => 'Sign Up',
 			'signUp.haveAccount' => 'Already have an account?',
 			'signUp.logIn' => 'Log In',
+			'signUp.passwordLength' => 'Password must be at least 8 characters',
 			'forgetPassword.title' => 'Forget Your Password ?',
 			'forgetPassword.sub' => 'Please enter the email address associated with your account. We will send you an OTP to reset your password.',
 			'forgetPassword.email' => 'Email',
@@ -437,8 +439,10 @@ extension on Translations {
 			'forgetPassword.sendCode' => 'Send Code',
 			'forgetPassword.back' => 'Back',
 			'forgetPassword.button' => 'Send Code',
+			'forgetPassword.required' => 'You can not leave this feild empty',
+			'forgetPassword.invalid' => 'Please enter a valid email',
 			'otpVerification.title' => 'OTP Verification',
-			'otpVerification.sub' => 'Please enter the 5-digit code sent to your email address.',
+			'otpVerification.sub' => 'Please enter the 6-digit code sent to your email address.',
 			'otpVerification.cancel' => 'Cancel',
 			'otpVerification.button' => 'Verify',
 			'createNewPassword.title' => 'Create New Password',

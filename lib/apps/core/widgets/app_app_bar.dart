@@ -3,7 +3,6 @@ import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -33,14 +32,14 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         title: Text(
           title,
-          style: GoogleFonts.rubik(textStyle: context.bold22Black),
+          style:context.bold22Black,
         ),
 
         actions: searchButton!
             ? [
                 CircleAvatar(
                   backgroundColor: AppColors.white,
-                  radius: 40,
+                  radius: 34,
                   child: Icon(Icons.search, size: 36),
                 ),
               ]

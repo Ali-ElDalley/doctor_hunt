@@ -2,7 +2,6 @@ import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DoctorStatItem extends StatelessWidget {
   final String stat;
@@ -23,11 +22,11 @@ class DoctorStatItem extends StatelessWidget {
         children: [
           Text(
             count.toString(),
-            style: GoogleFonts.rubik(textStyle: context.semiBold18Black),
+            style: context.semiBold18Black,
           ),
           Text(
             stat,
-            style: GoogleFonts.rubik(textStyle: context.regular14TextSub),
+            style: context.regular14TextSub,
           ),
         ],
       ),

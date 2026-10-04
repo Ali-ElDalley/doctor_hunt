@@ -2,7 +2,6 @@ import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class GreetingHeader extends StatelessWidget {
   const GreetingHeader({super.key});
@@ -20,11 +19,11 @@ class GreetingHeader extends StatelessWidget {
             children: [
               Text(
                 tr.home.greeting,
-                style: GoogleFonts.rubik(textStyle: context.regular20White),
+                style: context.regular20White,
               ),
               Text(
                 tr.home.title,
-                style: GoogleFonts.rubik(textStyle: context.bold26White),
+                style: context.bold26White,
               ),
             ],
           ),

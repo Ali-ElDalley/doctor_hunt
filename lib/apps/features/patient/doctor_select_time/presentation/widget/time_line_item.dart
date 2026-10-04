@@ -2,7 +2,6 @@ import 'package:doctor_hunt/apps/core/extensions/display_time_date_extensions.da
 import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TimeLineItem extends StatelessWidget {
   final TimeOfDay slot;
@@ -22,11 +21,10 @@ class TimeLineItem extends StatelessWidget {
       child: Center(
         child: Text(
           slot.formatted,
-          style: GoogleFonts.rubik(
-            textStyle: isSelected
+          style:  isSelected
                 ? context.medium14White
                 : context.medium14PrimaryDark,
-          ),
+          
         ),
       ),
     );

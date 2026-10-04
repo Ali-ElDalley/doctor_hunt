@@ -109,11 +109,10 @@ class _Translations$signUp$ar implements Translations$signUp$en {
 	@override String get emailHint => 'أدخل بريدك الإلكتروني';
 	@override String get password => 'كلمة المرور';
 	@override String get passwordHint => 'أدخل كلمة المرور';
-	@override String get confirmPassword => 'تأكيد كلمة المرور';
-	@override String get confirmPasswordHint => 'أعد إدخال كلمة المرور';
 	@override String get button => 'إنشاء حساب';
 	@override String get haveAccount => 'لديك حساب بالفعل؟';
 	@override String get logIn => 'تسجيل الدخول';
+	@override String get passwordLength => 'كلمة المرور يجب أن تكون 8 أحرف على الأقل';
 }
 
 // Path: forgetPassword
@@ -130,6 +129,8 @@ class _Translations$forgetPassword$ar implements Translations$forgetPassword$en 
 	@override String get sendCode => 'إرسال الرمز';
 	@override String get back => 'العودة';
 	@override String get button => 'إرسال الرمز';
+	@override String get required => 'لا يمكن ترك هذا الحقل فارغاً';
+	@override String get invalid => 'الرجاء إدخال بريد إلكتروني صالح';
 }
 
 // Path: otpVerification
@@ -140,7 +141,7 @@ class _Translations$otpVerification$ar implements Translations$otpVerification$e
 
 	// Translations
 	@override String get title => 'التحقق من الرمز';
-	@override String get sub => 'أدخل الرمز المكون من 5 أرقام الذي أُرسل إلى بريدك الإلكتروني.';
+	@override String get sub => 'أدخل الرمز المكون من 6 أرقام الذي أُرسل إلى بريدك الإلكتروني.';
 	@override String get cancel => 'إلغاء';
 	@override String get button => 'تحقق';
 }
@@ -286,11 +287,10 @@ extension on TranslationsAr {
 			'signUp.emailHint' => 'أدخل بريدك الإلكتروني',
 			'signUp.password' => 'كلمة المرور',
 			'signUp.passwordHint' => 'أدخل كلمة المرور',
-			'signUp.confirmPassword' => 'تأكيد كلمة المرور',
-			'signUp.confirmPasswordHint' => 'أعد إدخال كلمة المرور',
 			'signUp.button' => 'إنشاء حساب',
 			'signUp.haveAccount' => 'لديك حساب بالفعل؟',
 			'signUp.logIn' => 'تسجيل الدخول',
+			'signUp.passwordLength' => 'كلمة المرور يجب أن تكون 8 أحرف على الأقل',
 			'forgetPassword.title' => 'هل نسيت كلمة المرور؟',
 			'forgetPassword.sub' => 'أدخل عنوان البريد الإلكتروني المرتبط بحسابك. سنرسل لك رمزًا لمرة واحدة لإعادة تعيين كلمة المرور.',
 			'forgetPassword.email' => 'البريد الإلكتروني',
@@ -298,8 +298,10 @@ extension on TranslationsAr {
 			'forgetPassword.sendCode' => 'إرسال الرمز',
 			'forgetPassword.back' => 'العودة',
 			'forgetPassword.button' => 'إرسال الرمز',
+			'forgetPassword.required' => 'لا يمكن ترك هذا الحقل فارغاً',
+			'forgetPassword.invalid' => 'الرجاء إدخال بريد إلكتروني صالح',
 			'otpVerification.title' => 'التحقق من الرمز',
-			'otpVerification.sub' => 'أدخل الرمز المكون من 5 أرقام الذي أُرسل إلى بريدك الإلكتروني.',
+			'otpVerification.sub' => 'أدخل الرمز المكون من 6 أرقام الذي أُرسل إلى بريدك الإلكتروني.',
 			'otpVerification.cancel' => 'إلغاء',
 			'otpVerification.button' => 'تحقق',
 			'createNewPassword.title' => 'إنشاء كلمة مرور جديدة',

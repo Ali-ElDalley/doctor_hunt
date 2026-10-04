@@ -1,3 +1,5 @@
+
+import 'package:doctor_hunt/apps/features/common/auth/data/models/otp_flow.dart';
 import 'package:doctor_hunt/apps/features/patient/doctor_details/presentation/screens/doctor_details_screen.dart';
 import 'package:doctor_hunt/apps/features/patient/doctor_select_time/presentation/screens/doctor_select_time_screen.dart';
 import 'package:flutter/material.dart';
@@ -42,64 +44,71 @@ class ChooseRoleRoute extends GoRouteData with $ChooseRoleRoute {
       const ChooseRoleScreen();
 }
 
-@TypedGoRoute<LoginRoute>(path: '/login')
-class LoginRoute extends GoRouteData with $LoginRoute {
-  const LoginRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) => const Login();
-}
-
-@TypedGoRoute<SignupRoute>(path: '/signup')
-class SignupRoute extends GoRouteData with $SignupRoute {
-  const SignupRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) => const Signup();
-}
-
-@TypedGoRoute<ForgetPasswordRoute>(path: '/forget-password')
-class ForgetPasswordRoute extends GoRouteData with $ForgetPasswordRoute {
-  const ForgetPasswordRoute();
+@TypedGoRoute<LoginScreenRoute>(path: '/login/:role')
+class LoginScreenRoute extends GoRouteData with $LoginScreenRoute {
+  final String role;
+  const LoginScreenRoute({required this.role});
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      const ForgetPassword();
+      LogInScreen(role: role);
 }
 
-@TypedGoRoute<OtpVerficationRoute>(path: '/otp-verification')
-class OtpVerficationRoute extends GoRouteData with $OtpVerficationRoute {
+@TypedGoRoute<SignupScreenRoute>(path: '/signupScreen')
+class SignupScreenRoute extends GoRouteData with $SignupScreenRoute {
+  const SignupScreenRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const SignupScreen();
+}
+
+@TypedGoRoute<ForgetPasswordScreenRoute>(path: '/forget-password')
+class ForgetPasswordScreenRoute extends GoRouteData
+    with $ForgetPasswordScreenRoute {
+  const ForgetPasswordScreenRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const ForgetpasswordScreen();
+}
+
+@TypedGoRoute<OtpScreenRoute>(path: '/otp-verification/:email')
+class OtpScreenRoute extends GoRouteData with $OtpScreenRoute {
   final String email;
-  const OtpVerficationRoute({required this.email});
+  final OtpFlow type;
+  const OtpScreenRoute({required this.email, required this.type});
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-      OtpVerfication(email: email);
+      OtpScreen(email: email, type: type);
 }
 
-@TypedGoRoute<CreateNewPasswordRoute>(path: '/create-new-password')
-class CreateNewPasswordRoute extends GoRouteData with $CreateNewPasswordRoute {
-  const CreateNewPasswordRoute();
+@TypedGoRoute<CreateNewPasswordScreenRoute>(path: '/create-new-password')
+class CreateNewPasswordScreenRoute extends GoRouteData
+    with $CreateNewPasswordScreenRoute {
+  const CreateNewPasswordScreenRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const CreateNewPassword();
+  Widget build(BuildContext context, GoRouterState state) {
+    return CreateNewPasswordScreen();
+  }
 }
 
 @TypedGoRoute<DoctorDetailsRout>(path: '/doctorDetailsScreen')
 class DoctorDetailsRout extends GoRouteData with $DoctorDetailsRout {
   final String doctorId;
-   DoctorDetailsRout({required this.doctorId});
+  DoctorDetailsRout({required this.doctorId});
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
-       DoctorDetailsScreen(doctorId: doctorId,);
+      DoctorDetailsScreen(doctorId: doctorId);
 }
 
 @TypedGoRoute<DoctorSelectTimeRoute>(path: '/doctorSelectTimeScreen')
 class DoctorSelectTimeRoute extends GoRouteData with $DoctorSelectTimeRoute {
   final String doctorId;
-   DoctorSelectTimeRoute({required this.doctorId});
+  DoctorSelectTimeRoute({required this.doctorId});
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>

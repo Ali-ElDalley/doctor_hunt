@@ -1,7 +1,6 @@
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DoctorSection extends StatefulWidget {
   final String title;
@@ -30,7 +29,7 @@ class _DoctorSectionState extends State<DoctorSection> {
           children: [
             Text(
               widget.title,
-              style: GoogleFonts.rubik(textStyle: context.medium18Black),
+              style: context.medium18Black,
             ),
             widget.onSeeAll != null
                 ? GestureDetector(

@@ -4,8 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 
 class CustomPinPut extends StatefulWidget {
+  final void Function(String)? onCompleted;
   final TextEditingController? controller;
-  const CustomPinPut({super.key, this.controller});
+  const CustomPinPut({super.key, this.controller, this.onCompleted});
 
   @override
   State<CustomPinPut> createState() => _CustomPinPutState();
@@ -25,7 +26,8 @@ class _CustomPinPutState extends State<CustomPinPut> {
   @override
   Widget build(BuildContext context) {
     return Pinput(
-      length: 5,
+      onCompleted: (value) => widget.onCompleted!(value),
+      length: 6,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       controller: widget.controller,
       autofocus: true,

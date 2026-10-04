@@ -4,7 +4,6 @@ import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class FeatureDoctorCard extends StatelessWidget {
   final DoctorModel doctorModel;
@@ -40,7 +39,7 @@ class FeatureDoctorCard extends StatelessWidget {
               Icon(Icons.star, color: Colors.amber, size: 20),
               Text(
                 " ${doctorModel.rating}",
-                style: GoogleFonts.rubik(textStyle: context.semiBold11Black),
+                style: context.semiBold11Black,
               ),
             ],
           ),
@@ -52,11 +51,11 @@ class FeatureDoctorCard extends StatelessWidget {
           Gap(14),
           Text(
             doctorModel.name,
-            style: GoogleFonts.rubik(textStyle: context.semiBold14Black),
+            style: context.semiBold14Black,
           ),
           RichText(
             text: TextSpan(
-              style: GoogleFonts.rubik(textStyle: context.regular11TextSub),
+              style: context.regular11TextSub,
               children: [
                 TextSpan(
                   text: "\$ ",

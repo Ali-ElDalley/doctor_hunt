@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class PopularDoctorCard extends StatelessWidget {
   final DoctorModel doctorModel;
@@ -51,11 +50,11 @@ class PopularDoctorCard extends StatelessWidget {
           Gap(14),
           Text(
             doctorModel.name,
-            style: GoogleFonts.rubik(textStyle: context.semiBold18Black),
+            style:  context.semiBold18Black,
           ),
           Text(
             doctorModel.specialty,
-            style: GoogleFonts.rubik(textStyle: context.regular12TextSub),
+            style:  context.regular12TextSub,
           ),
           Gap(3),
           RatingBarIndicator(

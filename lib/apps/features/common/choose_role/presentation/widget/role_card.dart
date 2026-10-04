@@ -2,7 +2,6 @@ import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class RoleCard extends StatelessWidget {
   final String title;
@@ -68,20 +67,10 @@ class RoleCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      title,
-                      style: GoogleFonts.plusJakartaSans(
-                        textStyle: context.semiBold20Black,
-                      ),
-                    ),
+                    Text(title, style: context.semiBold20Black),
                     SizedBox(
                       width: 200.w,
-                      child: Text(
-                        desc,
-                        style: GoogleFonts.plusJakartaSans(
-                          textStyle: context.regular14TextSub,
-                        ),
-                      ),
+                      child: Text(desc, style: context.regular14TextSub),
                     ),
                   ],
                 ),

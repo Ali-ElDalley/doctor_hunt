@@ -1,15 +1,23 @@
+import 'package:doctor_hunt/apps/core/network/api/api_consts.dart';
 import 'package:doctor_hunt/apps/core/router/router.dart';
+import 'package:doctor_hunt/apps/core/utils/get_it_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'generated/strings.g.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await LocaleSettings.setLocale(AppLocale.ar);
+  setupGetIt();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   FlutterNativeSplash.remove();
+  await Supabase.initialize(
+    url: ApiConsts.projectUrl,
+    publishableKey: ApiConsts.key,
+  );
 
   runApp(const MyApp());
 }
@@ -21,6 +29,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 844),
       child: MaterialApp.router(
+        theme: ThemeData(fontFamily: 'Rubik'),
         locale: LocaleSettings.useDeviceLocaleSync().flutterLocale,
         localizationsDelegates: GlobalMaterialLocalizations.delegates,
         supportedLocales: AppLocaleUtils.supportedLocales,

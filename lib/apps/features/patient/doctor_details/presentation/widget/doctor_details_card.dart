@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DoctorDetailsCard extends StatelessWidget {
   final DoctorModel doctor;
@@ -66,16 +65,13 @@ class DoctorDetailsCard extends StatelessWidget {
                           children: [
                             Text(
                               doctor.name,
-                              style: GoogleFonts.rubik(
-                                textStyle: context.semiBold18Black,
-                              ),
+                              style:context.semiBold18Black,
                             ),
                             Text(
                               doctor.specialty,
                               textAlign: TextAlign.left,
-                              style: GoogleFonts.rubik(
-                                textStyle: context.regular16TextSub,
-                              ),
+                              style: context.regular16TextSub,
+                              
                             ),
                           ],
                         ),
@@ -107,9 +103,8 @@ class DoctorDetailsCard extends StatelessWidget {
                         const Spacer(),
                         RichText(
                           text: TextSpan(
-                            style: GoogleFonts.rubik(
-                              textStyle: context.regular16TextSub,
-                            ),
+                            style:  context.regular16TextSub,
+                            
                             children: [
                               TextSpan(
                                 text: "\$ ",

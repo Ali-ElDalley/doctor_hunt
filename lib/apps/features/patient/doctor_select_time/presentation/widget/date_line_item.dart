@@ -5,7 +5,6 @@ import 'package:doctor_hunt/apps/core/themes/app_colors.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DatelineItem extends StatelessWidget {
   final DateTime date;
@@ -55,19 +54,17 @@ class DatelineItem extends StatelessWidget {
           children: [
             Text(
               date.timelineLabel,
-              style: GoogleFonts.rubik(
-                textStyle: isSelected
+              style:  isSelected
                     ? context.semiBold14White
                     : context.semiBold14Black,
-              ),
+              
             ),
             Text(
               subLabel,
-              style: GoogleFonts.rubik(
-                textStyle: isSelected
+              style: isSelected
                     ? context.regular11White
                     : context.regular11TextSub,
-              ),
+              
             ),
           ],
         ),

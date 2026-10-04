@@ -11,7 +11,6 @@ import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gap/flutter_gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DoctorDetailsScreen extends StatelessWidget {
   final String doctorId;
@@ -35,7 +34,7 @@ class DoctorDetailsScreen extends StatelessWidget {
             Gap(26),
             Text(
               tr.doctorDetails.services,
-              style: GoogleFonts.rubik(textStyle: context.bold20Black),
+              style: context.bold20Black,
             ),
             Gap(18),
             SizedBox(
@@ -52,10 +51,8 @@ class DoctorDetailsScreen extends StatelessWidget {
                   children: [
                     RichText(
                       text: TextSpan(
-                        style: GoogleFonts.rubik(
-                          textStyle: context.medium12TextSub.copyWith(
-                            fontSize: 12.sp,
-                          ),
+                        style: context.medium12TextSub.copyWith(
+                          fontSize: 12.sp,
                         ),
                         children: [
                           TextSpan(
