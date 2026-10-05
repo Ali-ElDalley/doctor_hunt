@@ -9,27 +9,38 @@ class GreetingHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 60.h, horizontal: 40.w),
+      padding: EdgeInsetsDirectional.only(
+        top: 36.h,
+        start: 20.w,
+        end: 20.w,
+      ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                tr.home.greeting,
-                style: context.regular20White,
-              ),
-              Text(
-                tr.home.title,
-                style: context.bold26White,
-              ),
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  tr.home.greeting,
+                  style: context.light20White,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  tr.home.title,
+                  style: context.bold26White,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
           ),
-          const CircleAvatar(
-            radius: 32,
-            backgroundImage: NetworkImage(
+          CircleAvatar(
+            radius: 30.r,
+            backgroundImage: const NetworkImage(
               "https://randomuser.me/api/portraits/women/16.jpg",
             ),
           ),

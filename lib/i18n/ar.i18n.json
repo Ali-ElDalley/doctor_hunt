@@ -81,9 +81,8 @@
         "greeting": "مرحبًا، {name}!",
         "title": "اعثر على طبيبك",
         "search": "بحث",
-        "liveDoctors": "أطباء متاحون",
         "popularDoctors": "الأطباء الأكثر شعبية",
-        "featureDoctors": "أطباء مميزون",
+        "topDoctors": "الأطباء الأعلى تقييمًا",
         "viewAll": "عرض الكل"
     },
     "doctorDetails": {
@@ -94,5 +93,12 @@
         "services": "الخدمات",
         "hour": "/ساعة",
         "bookNow": "احجز الآن"
+    },
+    "menu": {
+        "home": "الرئيسية",
+        "favourites": "المفضلة",
+        "myAppointments": "مواعيدي",
+        "settings": "الإعدادات",
+        "logout": "تسجيل الخروج"
     }
 }

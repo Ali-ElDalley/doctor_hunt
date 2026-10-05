@@ -27,6 +27,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   void dispose() {
     email.dispose();
@@ -53,6 +54,7 @@ class _LoginState extends State<Login> {
               }
             },
             builder: (context, state) => Form(
+              key: formKey,
               child: CustomScrollView(
                 slivers: [
                   SliverFillRemaining(
@@ -103,20 +105,26 @@ class _LoginState extends State<Login> {
                               )
                             : SizedBox.shrink(),
                         Gap(31),
-                        AppButton(
-                          text: tr.logIn.title,
-                          height: 50.h,
-                          width: 342.w,
-                          onTap: () => context.login(
-                            AuthRequestModel(
-                              email: email.text,
-                              password: password.text,
-                            ),
-                            widget.role,
-                          ),
-                        ),
+                        state is AuthLoading
+                            ? const Center(child: CircularProgressIndicator())
+                            : AppButton(
+                                text: tr.logIn.title,
+                                height: 50.h,
+                                width: 342.w,
+                                onTap: () {
+                                  if (formKey.currentState!.validate()) {
+                                    context.login(
+                                      AuthRequestModel(
+                                        email: email.text,
+                                        password: password.text,
+                                      ),
+                                      widget.role,
+                                    );
+                                  }
+                                },
+                              ),
                         Spacer(),
-                        widget.role == "patient"
+                        widget.role == "patient" || state is! AuthLoading
                             ? Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [

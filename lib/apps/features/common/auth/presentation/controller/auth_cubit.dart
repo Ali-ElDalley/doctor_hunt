@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:doctor_hunt/apps/core/network/error/app_exception.dart';
 import 'package:doctor_hunt/apps/features/common/auth/data/models/otp_flow.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,19 +56,13 @@ class AuthCubit extends Cubit<AuthCubitState> {
 
   Future<void> logIn(AuthRequestModel request, String expectedRole) async {
     emit(const AuthLoading());
-    log("expectedRole : $expectedRole");
 
     try {
       final response = await authRepo.logIn(request);
       final userId = response.user!.id;
-      log("*********************");
-      log("userId : $userId");
       final actualRole = await authRepo.getUserRole(userId);
-      log("actualRole : $actualRole");
-      log("*********************");
 
       if (actualRole != expectedRole) {
-        log("if state");
         await authRepo.signOut();
         emit(const AuthFailure("Account doesn't match"));
         return;
@@ -78,10 +70,20 @@ class AuthCubit extends Cubit<AuthCubitState> {
 
       emit(const AuthSuccess());
     } on AppException catch (e) {
-      log('catch AppException');
       emit(AuthFailure(e.message));
     } catch (e) {
-      log('catch');
+      emit(AuthFailure(e.toString()));
+    }
+  }
+
+  Future<void> signOut() async {
+    emit(const AuthLoading());
+    try {
+      await authRepo.signOut();
+      emit(const AuthInitial());
+    } on AppException catch (e) {
+      emit(AuthFailure(e.message));
+    } catch (e) {
       emit(AuthFailure(e.toString()));
     }
   }

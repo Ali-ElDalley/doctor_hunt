@@ -49,7 +49,7 @@ void main() {
   ];
   const String outputPath = 'lib/generated/';
   const String importColorsClass =
-      "import '../app/core/themes/app_colors.dart';";
+      "import 'package:doctor_hunt/apps/core/themes/app_colors.dart';";
   const nameColorsClass = 'AppColors';
 
   // Create a new file named 'style_atoms.dart'

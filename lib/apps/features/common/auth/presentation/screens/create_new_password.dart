@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:doctor_hunt/apps/core/extensions/build_context_ex.dart';
 import 'package:doctor_hunt/apps/core/extensions/get_it_extensions.dart';
 import 'package:doctor_hunt/apps/core/extensions/text_editing_controller_ex.dart';
@@ -48,7 +46,6 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
           padding: EdgeInsets.all(20.w),
           child: BlocConsumer<AuthCubit, AuthCubitState>(
             listener: (context, state) {
-              log(state.toString());
               if (state is AuthSuccess) {
                 LoginScreenRoute(role: "patient").go(context);
               } else if (state is AuthFailure) {

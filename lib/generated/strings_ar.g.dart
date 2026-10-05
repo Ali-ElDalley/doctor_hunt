@@ -47,6 +47,7 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _Translations$createNewPassword$ar createNewPassword = _Translations$createNewPassword$ar._(_root);
 	@override late final _Translations$home$ar home = _Translations$home$ar._(_root);
 	@override late final _Translations$doctorDetails$ar doctorDetails = _Translations$doctorDetails$ar._(_root);
+	@override late final _Translations$menu$ar menu = _Translations$menu$ar._(_root);
 }
 
 // Path: onboarding
@@ -171,9 +172,8 @@ class _Translations$home$ar implements Translations$home$en {
 	@override String get greeting => 'مرحبًا، {name}!';
 	@override String get title => 'اعثر على طبيبك';
 	@override String get search => 'بحث';
-	@override String get liveDoctors => 'أطباء متاحون';
 	@override String get popularDoctors => 'الأطباء الأكثر شعبية';
-	@override String get featureDoctors => 'أطباء مميزون';
+	@override String get topDoctors => 'الأطباء الأعلى تقييمًا';
 	@override String get viewAll => 'عرض الكل';
 }
 
@@ -191,6 +191,20 @@ class _Translations$doctorDetails$ar implements Translations$doctorDetails$en {
 	@override String get services => 'الخدمات';
 	@override String get hour => '/ساعة';
 	@override String get bookNow => 'احجز الآن';
+}
+
+// Path: menu
+class _Translations$menu$ar implements Translations$menu$en {
+	_Translations$menu$ar._(this._root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'الرئيسية';
+	@override String get favourites => 'المفضلة';
+	@override String get myAppointments => 'مواعيدي';
+	@override String get settings => 'الإعدادات';
+	@override String get logout => 'تسجيل الخروج';
 }
 
 // Path: onboarding.onboarding1
@@ -313,9 +327,8 @@ extension on TranslationsAr {
 			'home.greeting' => 'مرحبًا، {name}!',
 			'home.title' => 'اعثر على طبيبك',
 			'home.search' => 'بحث',
-			'home.liveDoctors' => 'أطباء متاحون',
 			'home.popularDoctors' => 'الأطباء الأكثر شعبية',
-			'home.featureDoctors' => 'أطباء مميزون',
+			'home.topDoctors' => 'الأطباء الأعلى تقييمًا',
 			'home.viewAll' => 'عرض الكل',
 			'doctorDetails.title' => 'تفاصيل الطبيب',
 			'doctorDetails.running' => 'جارٍ',
@@ -324,6 +337,11 @@ extension on TranslationsAr {
 			'doctorDetails.services' => 'الخدمات',
 			'doctorDetails.hour' => '/ساعة',
 			'doctorDetails.bookNow' => 'احجز الآن',
+			'menu.home' => 'الرئيسية',
+			'menu.favourites' => 'المفضلة',
+			'menu.myAppointments' => 'مواعيدي',
+			'menu.settings' => 'الإعدادات',
+			'menu.logout' => 'تسجيل الخروج',
 			_ => null,
 		};
 	}

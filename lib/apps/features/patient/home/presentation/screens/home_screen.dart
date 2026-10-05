@@ -2,14 +2,14 @@ import 'package:doctor_hunt/apps/core/models/doctor_model.dart';
 import 'package:doctor_hunt/apps/core/network/test/dummy_data.dart';
 import 'package:doctor_hunt/apps/core/router/router.dart';
 import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/doctor_section.dart';
-import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/feature_doctor_card.dart';
 import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/greeting_header.dart';
 import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/home_appbar_background.dart';
-import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/live_card.dart';
 import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/popular_doctor_card.dart';
 import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/search_box.dart';
+import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/top_doctor_card.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -21,12 +21,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final EdgeInsetsGeometry padding = EdgeInsets.symmetric(
-    horizontal: 20.w,
-    vertical: 30.h,
-  );
   final List catagory = DummyData.catagory;
   final List<DoctorModel> dummyDoctor = DummyData.dummyDoctors;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,114 +32,98 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 220.h,
+              height: 180.h,
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  HomeAppbarBackground(),
-                  GreetingHeader(),
+                  const HomeAppbarBackground(),
+                  const GreetingHeader(),
                   Positioned(
-                    top: 155.h,
+                    top: 126.h,
                     left: 20.w,
                     right: 20.w,
-                    child: SearchBox(),
+                    child: const SearchBox(),
                   ),
                 ],
               ),
             ),
-            Padding(
-              padding: padding,
-              child: DoctorSection(
-                title: tr.home.liveDoctors,
-                child: SizedBox(
-                  height: 170.h,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: dummyDoctor.length,
-                    itemBuilder: (context, index) => Padding(
-                      padding: EdgeInsetsDirectional.only(start: 10.w),
-                      child: LiveCard(image: dummyDoctor[index].imageUrl),
+            Gap(24.h),
+            SizedBox(
+              height: 90.h,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                itemCount: catagory.length,
+                separatorBuilder: (context, index) => Gap(12.w),
+                itemBuilder: (context, index) => Container(
+                  width: 80.w,
+                  height: 90.h,
+                  padding: EdgeInsets.all(22.w),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.r),
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: catagory[index]["colors"],
                     ),
                   ),
+                  child: SvgPicture.asset(catagory[index]["image"]),
                 ),
               ),
             ),
+            Gap(24.h),
             Padding(
-              padding: padding,
-              child: SizedBox(
-                height: 100.h,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: catagory.length,
-                  itemBuilder: (context, index) => Padding(
-                    padding: EdgeInsetsDirectional.only(start: 10.w),
-                    child: Container(
-                      width: 90.w,
-                      padding: EdgeInsets.all(25.w),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.r),
-                        gradient: LinearGradient(
-                          begin: AlignmentGeometry.topLeft,
-                          end: AlignmentGeometry.bottomRight,
-                          colors: catagory[index]["colors"],
-                        ),
-                      ),
-                      child: SvgPicture.asset(catagory[index]["image"]),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: padding,
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: DoctorSection(
                 title: tr.home.popularDoctors,
                 onSeeAll: () {},
                 child: SizedBox(
-                  height: 280.h,
-                  child: ListView.builder(
+                  height: 275.h,
+                  child: ListView.separated(
+                    clipBehavior: Clip.none,
                     scrollDirection: Axis.horizontal,
                     itemCount: dummyDoctor.length,
-                    itemBuilder: (context, index) => Padding(
-                      padding: EdgeInsetsDirectional.only(start: 10.w),
-                      child: InkWell(
-                        onTap: () => DoctorDetailsRout(
-                          doctorId: dummyDoctor[index].id,
-                        ).push(context),
-                        child: PopularDoctorCard(
-                          doctorModel: dummyDoctor[index],
-                        ),
+                    separatorBuilder: (context, index) => Gap(15.w),
+                    itemBuilder: (context, index) => InkWell(
+                      onTap: () => DoctorDetailsRout(
+                        doctorId: dummyDoctor[index].id,
+                      ).push(context),
+                      borderRadius: BorderRadius.circular(12.r),
+                      child: PopularDoctorCard(
+                        doctorModel: dummyDoctor[index],
                       ),
                     ),
                   ),
                 ),
               ),
             ),
+            Gap(24.h),
             Padding(
-              padding: padding,
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: DoctorSection(
-                title: tr.home.featureDoctors,
+                title: tr.home.topDoctors,
                 onSeeAll: () {},
                 child: SizedBox(
-                  height: 150.h,
-                  child: ListView.builder(
+                  height: 145.h,
+                  child: ListView.separated(
+                    clipBehavior: Clip.none,
                     scrollDirection: Axis.horizontal,
                     itemCount: dummyDoctor.length,
-                    itemBuilder: (context, index) => Padding(
-                      padding: EdgeInsetsDirectional.only(start: 10.w),
-                      child: InkWell(
-                        onTap: () => DoctorDetailsRout(
-                          doctorId: dummyDoctor[index].id,
-                        ).push(context),
-                        child: FeatureDoctorCard(
-                          doctorModel: dummyDoctor[index],
-                        ),
+                    separatorBuilder: (context, index) => Gap(12.w),
+                    itemBuilder: (context, index) => InkWell(
+                      onTap: () => DoctorDetailsRout(
+                        doctorId: dummyDoctor[index].id,
+                      ).push(context),
+                      borderRadius: BorderRadius.circular(6.r),
+                      child: TopDoctorCard(
+                        doctorModel: dummyDoctor[index],
                       ),
                     ),
                   ),
                 ),
               ),
             ),
+            Gap(100.h),
           ],
         ),
       ),

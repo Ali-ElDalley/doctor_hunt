@@ -60,15 +60,14 @@
         "sendCode": "Send Code",
         "back": "Back",
         "button": "Send Code",
-        "required":"You can not leave this feild empty",
-        "invalid":"Please enter a valid email"
+        "required": "You can not leave this feild empty",
+        "invalid": "Please enter a valid email"
     },
     "otpVerification": {
         "title": "OTP Verification",
         "sub": "Please enter the 6-digit code sent to your email address.",
         "cancel": "Cancel",
         "button": "Verify"
-
     },
     "createNewPassword": {
         "title": "Create New Password",
@@ -82,9 +81,8 @@
         "greeting": "Hi, {name}!",
         "title": "Find Your Doctor",
         "search": "Search",
-        "liveDoctors": "Live Doctors",
         "popularDoctors": "Popular Doctor",
-        "featureDoctors": "Feature Doctor",
+        "topDoctors": "Top Rated Doctors",
         "viewAll": "View All"
     },
     "doctorDetails": {
@@ -95,5 +93,12 @@
         "services": "Services",
         "hour": "/Hour",
         "bookNow": "Book Now"
+    },
+    "menu": {
+        "home": "Home",
+        "favourites": "Favourites",
+        "myAppointments": "My Appointments",
+        "settings": "Settings",
+        "logout": "Logout"
     }
 }

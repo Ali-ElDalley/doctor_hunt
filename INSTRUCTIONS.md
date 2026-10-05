@@ -1,7 +1,5 @@
 # Doctor Hunt — Comprehensive Project Instructions & Architectural Guide
 
----
-
 ## 1. Project Overview & Context
 
 - **Project Name:** Doctor Hunt (تطبيق دكتور هَنت)

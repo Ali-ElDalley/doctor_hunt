@@ -50,6 +50,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$createNewPassword$en createNewPassword = Translations$createNewPassword$en._(_root);
 	late final Translations$home$en home = Translations$home$en._(_root);
 	late final Translations$doctorDetails$en doctorDetails = Translations$doctorDetails$en._(_root);
+	late final Translations$menu$en menu = Translations$menu$en._(_root);
 }
 
 // Path: onboarding
@@ -271,14 +272,11 @@ class Translations$home$en {
 	/// en: 'Search'
 	String get search => 'Search';
 
-	/// en: 'Live Doctors'
-	String get liveDoctors => 'Live Doctors';
-
 	/// en: 'Popular Doctor'
 	String get popularDoctors => 'Popular Doctor';
 
-	/// en: 'Feature Doctor'
-	String get featureDoctors => 'Feature Doctor';
+	/// en: 'Top Rated Doctors'
+	String get topDoctors => 'Top Rated Doctors';
 
 	/// en: 'View All'
 	String get viewAll => 'View All';
@@ -312,6 +310,30 @@ class Translations$doctorDetails$en {
 
 	/// en: 'Book Now'
 	String get bookNow => 'Book Now';
+}
+
+// Path: menu
+class Translations$menu$en {
+	Translations$menu$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Home'
+	String get home => 'Home';
+
+	/// en: 'Favourites'
+	String get favourites => 'Favourites';
+
+	/// en: 'My Appointments'
+	String get myAppointments => 'My Appointments';
+
+	/// en: 'Settings'
+	String get settings => 'Settings';
+
+	/// en: 'Logout'
+	String get logout => 'Logout';
 }
 
 // Path: onboarding.onboarding1
@@ -454,9 +476,8 @@ extension on Translations {
 			'home.greeting' => 'Hi, {name}!',
 			'home.title' => 'Find Your Doctor',
 			'home.search' => 'Search',
-			'home.liveDoctors' => 'Live Doctors',
 			'home.popularDoctors' => 'Popular Doctor',
-			'home.featureDoctors' => 'Feature Doctor',
+			'home.topDoctors' => 'Top Rated Doctors',
 			'home.viewAll' => 'View All',
 			'doctorDetails.title' => 'Doctor Details',
 			'doctorDetails.running' => 'Running',
@@ -465,6 +486,11 @@ extension on Translations {
 			'doctorDetails.services' => 'Services',
 			'doctorDetails.hour' => '/Hour',
 			'doctorDetails.bookNow' => 'Book Now',
+			'menu.home' => 'Home',
+			'menu.favourites' => 'Favourites',
+			'menu.myAppointments' => 'My Appointments',
+			'menu.settings' => 'Settings',
+			'menu.logout' => 'Logout',
 			_ => null,
 		};
 	}

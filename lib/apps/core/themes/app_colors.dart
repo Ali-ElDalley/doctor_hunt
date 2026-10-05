@@ -29,4 +29,8 @@ class AppColors {
   static const Color white = Color(0xffFAFCFB);
   static const Color black = Color(0xFF333333);
   static Color boxShadow = Color(0xFF000000).withValues(alpha: 0.8);
+
+  // Menu Drawer Gradient
+  static const Color menuGradientStart = Color(0xFF6F7FA1);
+  static const Color menuGradientEnd = Color(0xFF536184);
 }
