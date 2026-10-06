@@ -20,6 +20,8 @@ import 'package:doctor_hunt/apps/features/common/auth/presentation/screens/creat
 
 // Home
 import 'package:doctor_hunt/apps/features/patient/home/presentation/screens/home_screen.dart';
+import 'package:doctor_hunt/apps/features/patient/home/presentation/screens/popular_doctors_screen.dart';
+import 'package:doctor_hunt/apps/features/patient/home/presentation/screens/find_doctors_screen.dart';
 
 // Root
 import 'package:doctor_hunt/apps/features/patient/main/presentation/screens/root.dart';
@@ -113,6 +115,25 @@ class DoctorSelectTimeRoute extends GoRouteData with $DoctorSelectTimeRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       DoctorSelectTimeScreen(doctorId: doctorId);
+}
+
+@TypedGoRoute<PopularDoctorsRoute>(path: '/popularDoctorsScreen')
+class PopularDoctorsRoute extends GoRouteData with $PopularDoctorsRoute {
+  const PopularDoctorsRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const PopularDoctorsScreen();
+}
+
+@TypedGoRoute<FindDoctorsRoute>(path: '/findDoctorsScreen')
+class FindDoctorsRoute extends GoRouteData with $FindDoctorsRoute {
+  final String? initialQuery;
+  const FindDoctorsRoute({this.initialQuery});
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      FindDoctorsScreen(initialQuery: initialQuery);
 }
 
 @TypedStatefulShellRoute<MainShellRouteData>(

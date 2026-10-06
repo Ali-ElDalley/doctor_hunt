@@ -48,6 +48,8 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _Translations$home$ar home = _Translations$home$ar._(_root);
 	@override late final _Translations$doctorDetails$ar doctorDetails = _Translations$doctorDetails$ar._(_root);
 	@override late final _Translations$menu$ar menu = _Translations$menu$ar._(_root);
+	@override late final _Translations$popularDoctors$ar popularDoctors = _Translations$popularDoctors$ar._(_root);
+	@override late final _Translations$findDoctors$ar findDoctors = _Translations$findDoctors$ar._(_root);
 }
 
 // Path: onboarding
@@ -207,6 +209,30 @@ class _Translations$menu$ar implements Translations$menu$en {
 	@override String get logout => 'تسجيل الخروج';
 }
 
+// Path: popularDoctors
+class _Translations$popularDoctors$ar implements Translations$popularDoctors$en {
+	_Translations$popularDoctors$ar._(this._root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'الأطباء الأكثر شعبية';
+	@override String get views => 'مشاهدة';
+	@override String get noDoctors => 'لم يتم العثور على أطباء';
+}
+
+// Path: findDoctors
+class _Translations$findDoctors$ar implements Translations$findDoctors$en {
+	_Translations$findDoctors$ar._(this._root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'البحث عن الأطباء';
+	@override String get searchHint => 'طبيب أسنان';
+	@override String get noDoctors => 'لم يتم العثور على أطباء';
+}
+
 // Path: onboarding.onboarding1
 class _Translations$onboarding$onboarding1$ar implements Translations$onboarding$onboarding1$en {
 	_Translations$onboarding$onboarding1$ar._(this._root);
@@ -342,6 +368,12 @@ extension on TranslationsAr {
 			'menu.myAppointments' => 'مواعيدي',
 			'menu.settings' => 'الإعدادات',
 			'menu.logout' => 'تسجيل الخروج',
+			'popularDoctors.title' => 'الأطباء الأكثر شعبية',
+			'popularDoctors.views' => 'مشاهدة',
+			'popularDoctors.noDoctors' => 'لم يتم العثور على أطباء',
+			'findDoctors.title' => 'البحث عن الأطباء',
+			'findDoctors.searchHint' => 'طبيب أسنان',
+			'findDoctors.noDoctors' => 'لم يتم العثور على أطباء',
 			_ => null,
 		};
 	}

@@ -51,6 +51,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$home$en home = Translations$home$en._(_root);
 	late final Translations$doctorDetails$en doctorDetails = Translations$doctorDetails$en._(_root);
 	late final Translations$menu$en menu = Translations$menu$en._(_root);
+	late final Translations$popularDoctors$en popularDoctors = Translations$popularDoctors$en._(_root);
+	late final Translations$findDoctors$en findDoctors = Translations$findDoctors$en._(_root);
 }
 
 // Path: onboarding
@@ -336,6 +338,42 @@ class Translations$menu$en {
 	String get logout => 'Logout';
 }
 
+// Path: popularDoctors
+class Translations$popularDoctors$en {
+	Translations$popularDoctors$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Popular Doctors'
+	String get title => 'Popular Doctors';
+
+	/// en: 'views'
+	String get views => 'views';
+
+	/// en: 'No doctors found'
+	String get noDoctors => 'No doctors found';
+}
+
+// Path: findDoctors
+class Translations$findDoctors$en {
+	Translations$findDoctors$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Find Doctors'
+	String get title => 'Find Doctors';
+
+	/// en: 'Dentist'
+	String get searchHint => 'Dentist';
+
+	/// en: 'No doctors found'
+	String get noDoctors => 'No doctors found';
+}
+
 // Path: onboarding.onboarding1
 class Translations$onboarding$onboarding1$en {
 	Translations$onboarding$onboarding1$en._(this._root);
@@ -491,6 +529,12 @@ extension on Translations {
 			'menu.myAppointments' => 'My Appointments',
 			'menu.settings' => 'Settings',
 			'menu.logout' => 'Logout',
+			'popularDoctors.title' => 'Popular Doctors',
+			'popularDoctors.views' => 'views',
+			'popularDoctors.noDoctors' => 'No doctors found',
+			'findDoctors.title' => 'Find Doctors',
+			'findDoctors.searchHint' => 'Dentist',
+			'findDoctors.noDoctors' => 'No doctors found',
 			_ => null,
 		};
 	}

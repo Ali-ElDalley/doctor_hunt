@@ -100,5 +100,15 @@
         "myAppointments": "My Appointments",
         "settings": "Settings",
         "logout": "Logout"
+    },
+    "popularDoctors": {
+        "title": "Popular Doctors",
+        "views": "views",
+        "noDoctors": "No doctors found"
+    },
+    "findDoctors": {
+        "title": "Find Doctors",
+        "searchHint": "Dentist",
+        "noDoctors": "No doctors found"
     }
 }

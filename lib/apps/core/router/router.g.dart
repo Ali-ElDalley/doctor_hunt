@@ -16,6 +16,8 @@ List<RouteBase> get $appRoutes => [
   $createNewPasswordScreenRoute,
   $doctorDetailsRout,
   $doctorSelectTimeRoute,
+  $popularDoctorsRoute,
+  $findDoctorsRoute,
   $mainShellRouteData,
 ];
 
@@ -276,6 +278,68 @@ mixin $DoctorSelectTimeRoute on GoRouteData {
   String get location => GoRouteData.$location(
     '/doctorSelectTimeScreen',
     queryParams: {'doctor-id': _self.doctorId},
+  );
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $popularDoctorsRoute => GoRouteData.$route(
+  path: '/popularDoctorsScreen',
+  hasOverriddenOnExit: false,
+  factory: $PopularDoctorsRoute._fromState,
+);
+
+mixin $PopularDoctorsRoute on GoRouteData {
+  static PopularDoctorsRoute _fromState(GoRouterState state) =>
+      const PopularDoctorsRoute();
+
+  @override
+  String get location => GoRouteData.$location('/popularDoctorsScreen');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $findDoctorsRoute => GoRouteData.$route(
+  path: '/findDoctorsScreen',
+  hasOverriddenOnExit: false,
+  factory: $FindDoctorsRoute._fromState,
+);
+
+mixin $FindDoctorsRoute on GoRouteData {
+  static FindDoctorsRoute _fromState(GoRouterState state) => FindDoctorsRoute(
+    initialQuery: state.uri.queryParameters['initial-query'],
+  );
+
+  FindDoctorsRoute get _self => this as FindDoctorsRoute;
+
+  @override
+  String get location => GoRouteData.$location(
+    '/findDoctorsScreen',
+    queryParams: {
+      if (_self.initialQuery != null) 'initial-query': _self.initialQuery,
+    },
   );
 
   @override

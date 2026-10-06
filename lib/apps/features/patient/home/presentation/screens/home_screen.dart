@@ -42,7 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     top: 126.h,
                     left: 20.w,
                     right: 20.w,
-                    child: const SearchBox(),
+                    child: SearchBox(
+                      readOnly: true,
+                      onTap: () => const FindDoctorsRoute().push(context),
+                    ),
                   ),
                 ],
               ),
@@ -76,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: DoctorSection(
                 title: tr.home.popularDoctors,
-                onSeeAll: () {},
+                onSeeAll: () => const PopularDoctorsRoute().push(context),
                 child: SizedBox(
                   height: 275.h,
                   child: ListView.separated(

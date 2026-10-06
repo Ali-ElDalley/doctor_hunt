@@ -100,5 +100,15 @@
         "myAppointments": "مواعيدي",
         "settings": "الإعدادات",
         "logout": "تسجيل الخروج"
+    },
+    "popularDoctors": {
+        "title": "الأطباء الأكثر شعبية",
+        "views": "مشاهدة",
+        "noDoctors": "لم يتم العثور على أطباء"
+    },
+    "findDoctors": {
+        "title": "البحث عن الأطباء",
+        "searchHint": "طبيب أسنان",
+        "noDoctors": "لم يتم العثور على أطباء"
     }
 }
