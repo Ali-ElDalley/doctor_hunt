@@ -34,14 +34,20 @@ class PopularDoctorCard extends StatelessWidget {
             child: SizedBox(
               width: 190.w,
               height: 180.h,
-              child: Image.network(
-                doctorModel.imageUrl,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => Container(
-                  color: Colors.grey.shade200,
-                  child: Icon(Icons.person, size: 50.sp, color: Colors.grey),
-                ),
-              ),
+              child: doctorModel.imageUrl.isEmpty
+                  ? Container(
+                      color: Colors.grey.shade200,
+                      child: Icon(Icons.person, size: 50.sp, color: Colors.grey),
+                    )
+                  : Image.network(
+                      doctorModel.imageUrl,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                      errorBuilder: (context, error, stackTrace) => Container(
+                        color: Colors.grey.shade200,
+                        child: Icon(Icons.person, size: 50.sp, color: Colors.grey),
+                      ),
+                    ),
             ),
           ),
           Gap(10.h),

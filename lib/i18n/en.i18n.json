@@ -78,7 +78,7 @@
         "button": "Submit"
     },
     "home": {
-        "greeting": "Hi, {name}!",
+        "greeting": "Hi, $name!",
         "title": "Find Your Doctor",
         "search": "Search",
         "popularDoctors": "Popular Doctor",

@@ -171,7 +171,7 @@ class _Translations$home$ar implements Translations$home$en {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get greeting => 'مرحبًا، {name}!';
+	@override String greeting({required Object name}) => 'مرحبًا، ${name}!';
 	@override String get title => 'اعثر على طبيبك';
 	@override String get search => 'بحث';
 	@override String get popularDoctors => 'الأطباء الأكثر شعبية';
@@ -350,7 +350,7 @@ extension on TranslationsAr {
 			'createNewPassword.confirmPasswordHint' => 'أعد إدخال كلمة المرور',
 			'createNewPassword.cancel' => 'إلغاء',
 			'createNewPassword.button' => 'إرسال',
-			'home.greeting' => 'مرحبًا، {name}!',
+			'home.greeting' => ({required Object name}) => 'مرحبًا، ${name}!',
 			'home.title' => 'اعثر على طبيبك',
 			'home.search' => 'بحث',
 			'home.popularDoctors' => 'الأطباء الأكثر شعبية',

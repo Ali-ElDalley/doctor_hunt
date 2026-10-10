@@ -78,7 +78,7 @@
         "button": "إرسال"
     },
     "home": {
-        "greeting": "مرحبًا، {name}!",
+        "greeting": "مرحبًا، $name!",
         "title": "اعثر على طبيبك",
         "search": "بحث",
         "popularDoctors": "الأطباء الأكثر شعبية",

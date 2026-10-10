@@ -265,8 +265,8 @@ class Translations$home$en {
 
 	// Translations
 
-	/// en: 'Hi, {name}!'
-	String get greeting => 'Hi, {name}!';
+	/// en: 'Hi, $name!'
+	String greeting({required Object name}) => 'Hi, ${name}!';
 
 	/// en: 'Find Your Doctor'
 	String get title => 'Find Your Doctor';
@@ -511,7 +511,7 @@ extension on Translations {
 			'createNewPassword.confirmPasswordHint' => 'Re-enter your password',
 			'createNewPassword.cancel' => 'Cancel',
 			'createNewPassword.button' => 'Submit',
-			'home.greeting' => 'Hi, {name}!',
+			'home.greeting' => ({required Object name}) => 'Hi, ${name}!',
 			'home.title' => 'Find Your Doctor',
 			'home.search' => 'Search',
 			'home.popularDoctors' => 'Popular Doctor',

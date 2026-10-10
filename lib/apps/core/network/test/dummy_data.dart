@@ -11,6 +11,7 @@ class DummyData {
       imageUrl: 'https://randomuser.me/api/portraits/women/45.jpg',
       rating: 4.5,
       pricePerHour: 28.0,
+
       isFavorite: false,
       runningCount: 100,
       ongoingCount: 500,
@@ -28,6 +29,7 @@ class DummyData {
       imageUrl: 'https://randomuser.me/api/portraits/women/32.jpg',
       rating: 4.0,
       pricePerHour: 35.0,
+
       isFavorite: true,
       runningCount: 80,
       ongoingCount: 320,
@@ -45,6 +47,7 @@ class DummyData {
       imageUrl: 'https://randomuser.me/api/portraits/women/68.jpg',
       rating: 4.2,
       pricePerHour: 22.0,
+
       isFavorite: false,
       runningCount: 60,
       ongoingCount: 210,
@@ -62,6 +65,7 @@ class DummyData {
       imageUrl: 'https://randomuser.me/api/portraits/men/22.jpg',
       rating: 3.7,
       pricePerHour: 38.0,
+
       isFavorite: false,
       runningCount: 40,
       ongoingCount: 150,

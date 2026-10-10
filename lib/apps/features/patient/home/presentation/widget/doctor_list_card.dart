@@ -61,14 +61,20 @@ class _DoctorListCardState extends State<DoctorListCard> {
               child: SizedBox(
                 width: 82.w,
                 height: 82.h,
-                child: Image.network(
-                  widget.doctorModel.imageUrl,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => Container(
-                    color: Colors.grey.shade200,
-                    child: Icon(Icons.person, size: 40.sp, color: Colors.grey),
-                  ),
-                ),
+                child: widget.doctorModel.imageUrl.isEmpty
+                    ? Container(
+                        color: Colors.grey.shade200,
+                        child: Icon(Icons.person, size: 40.sp, color: Colors.grey),
+                      )
+                    : Image.network(
+                        widget.doctorModel.imageUrl,
+                        fit: BoxFit.cover,
+                        alignment: Alignment.topCenter,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          color: Colors.grey.shade200,
+                          child: Icon(Icons.person, size: 40.sp, color: Colors.grey),
+                        ),
+                      ),
               ),
             ),
             Gap(15.w),

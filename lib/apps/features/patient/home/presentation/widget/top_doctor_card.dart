@@ -51,10 +51,25 @@ class TopDoctorCard extends StatelessWidget {
             ],
           ),
           Gap(9.h),
-          CircleAvatar(
-            radius: 27.r,
-            backgroundImage: NetworkImage(doctorModel.imageUrl),
-            backgroundColor: Colors.grey.shade200,
+          ClipOval(
+            child: SizedBox(
+              width: 54.r,
+              height: 54.r,
+              child: doctorModel.imageUrl.isEmpty
+                  ? Container(
+                      color: Colors.grey.shade200,
+                      child: Icon(Icons.person, size: 27.r, color: Colors.grey),
+                    )
+                  : Image.network(
+                      doctorModel.imageUrl,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                      errorBuilder: (context, error, stackTrace) => Container(
+                        color: Colors.grey.shade200,
+                        child: Icon(Icons.person, size: 27.r, color: Colors.grey),
+                      ),
+                    ),
+            ),
           ),
           Gap(20.h),
           Text(

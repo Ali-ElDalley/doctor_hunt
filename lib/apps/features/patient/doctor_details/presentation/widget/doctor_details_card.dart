@@ -48,8 +48,21 @@ class DoctorDetailsCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.r),
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadiusGeometry.circular(8.r),
-                  child: Image.network(doctor.imageUrl),
+                  borderRadius: BorderRadius.circular(8.r),
+                  child: doctor.imageUrl.isEmpty
+                      ? Container(
+                          color: Colors.grey.shade200,
+                          child: Icon(Icons.person, size: 40.sp, color: Colors.grey),
+                        )
+                      : Image.network(
+                          doctor.imageUrl,
+                          fit: BoxFit.cover,
+                          alignment: Alignment.topCenter,
+                          errorBuilder: (context, error, stackTrace) => Container(
+                            color: Colors.grey.shade200,
+                            child: Icon(Icons.person, size: 40.sp, color: Colors.grey),
+                          ),
+                        ),
                 ),
               ),
               SizedBox(width: 12.w),

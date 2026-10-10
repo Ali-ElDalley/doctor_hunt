@@ -1,6 +1,12 @@
+import 'package:doctor_hunt/apps/core/extensions/get_it_extensions.dart';
 import 'package:doctor_hunt/apps/core/models/doctor_model.dart';
 import 'package:doctor_hunt/apps/core/network/test/dummy_data.dart';
 import 'package:doctor_hunt/apps/core/router/router.dart';
+import 'package:doctor_hunt/apps/core/utils/get_it_service.dart';
+import 'package:doctor_hunt/apps/features/patient/home/presentation/controller/doctor_bloc/doctor_cubit.dart';
+import 'package:doctor_hunt/apps/features/patient/home/presentation/controller/doctor_bloc/doctor_state.dart';
+import 'package:doctor_hunt/apps/features/patient/home/presentation/controller/specialties_bloc/specialties_cubit.dart';
+import 'package:doctor_hunt/apps/features/patient/home/presentation/controller/user_bloc/user_cubit.dart';
 import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/doctor_section.dart';
 import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/greeting_header.dart';
 import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/home_appbar_background.dart';
@@ -9,20 +15,21 @@ import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/searc
 import 'package:doctor_hunt/apps/features/patient/home/presentation/widget/top_doctor_card.dart';
 import 'package:doctor_hunt/generated/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeViewState extends State<HomeView> {
   final List catagory = DummyData.catagory;
-  final List<DoctorModel> dummyDoctor = DummyData.dummyDoctors;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 clipBehavior: Clip.none,
                 children: [
                   const HomeAppbarBackground(),
-                  const GreetingHeader(),
+                  GreetingHeader(),
                   Positioned(
                     top: 126.h,
                     left: 20.w,
@@ -82,20 +89,37 @@ class _HomeScreenState extends State<HomeScreen> {
                 onSeeAll: () => const PopularDoctorsRoute().push(context),
                 child: SizedBox(
                   height: 275.h,
-                  child: ListView.separated(
-                    clipBehavior: Clip.none,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: dummyDoctor.length,
-                    separatorBuilder: (context, index) => Gap(15.w),
-                    itemBuilder: (context, index) => InkWell(
-                      onTap: () => DoctorDetailsRout(
-                        doctorId: dummyDoctor[index].id,
-                      ).push(context),
-                      borderRadius: BorderRadius.circular(12.r),
-                      child: PopularDoctorCard(
-                        doctorModel: dummyDoctor[index],
-                      ),
-                    ),
+                  child: BlocBuilder<DoctorCubit, DoctorState>(
+                    builder: (context, state) {
+                      List<DoctorModel> doctors = state is DoctorLoadedState
+                          ? state.doctors
+                          : [];
+                      return ListView.separated(
+                        clipBehavior: Clip.none,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: doctors.isNotEmpty ? doctors.length : 6,
+                        separatorBuilder: (context, index) => Gap(15.w),
+                        itemBuilder: (context, index) => Skeletonizer(
+                          enabled:
+                              state is DoctorLoadingState ||
+                              state is DoctorInitialState ||
+                              doctors.isEmpty,
+                          child: InkWell(
+                            onTap: doctors.isNotEmpty
+                                ? () => DoctorDetailsRout(
+                                      doctorId: doctors[index].id,
+                                    ).push(context)
+                                : null,
+                            borderRadius: BorderRadius.circular(12.r),
+                            child: doctors.isNotEmpty
+                                ? PopularDoctorCard(doctorModel: doctors[index])
+                                : PopularDoctorCard(
+                                    doctorModel: DoctorModel.skeletonizer(),
+                                  ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
@@ -108,20 +132,37 @@ class _HomeScreenState extends State<HomeScreen> {
                 onSeeAll: () {},
                 child: SizedBox(
                   height: 145.h,
-                  child: ListView.separated(
-                    clipBehavior: Clip.none,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: dummyDoctor.length,
-                    separatorBuilder: (context, index) => Gap(12.w),
-                    itemBuilder: (context, index) => InkWell(
-                      onTap: () => DoctorDetailsRout(
-                        doctorId: dummyDoctor[index].id,
-                      ).push(context),
-                      borderRadius: BorderRadius.circular(6.r),
-                      child: TopDoctorCard(
-                        doctorModel: dummyDoctor[index],
-                      ),
-                    ),
+                  child: BlocBuilder<DoctorCubit, DoctorState>(
+                    builder: (context, state) {
+                      List<DoctorModel> doctors = state is DoctorLoadedState
+                          ? state.doctors
+                          : [];
+                      return ListView.separated(
+                        clipBehavior: Clip.none,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: doctors.isNotEmpty ? doctors.length : 6,
+                        separatorBuilder: (context, index) => Gap(12.w),
+                        itemBuilder: (context, index) => Skeletonizer(
+                          enabled:
+                              state is DoctorLoadingState ||
+                              state is DoctorInitialState ||
+                              doctors.isEmpty,
+                          child: InkWell(
+                            onTap: doctors.isNotEmpty
+                                ? () => DoctorDetailsRout(
+                                      doctorId: doctors[index].id,
+                                    ).push(context)
+                                : null,
+                            borderRadius: BorderRadius.circular(6.r),
+                            child: doctors.isNotEmpty
+                                ? TopDoctorCard(doctorModel: doctors[index])
+                                : TopDoctorCard(
+                                    doctorModel: DoctorModel.skeletonizer(),
+                                  ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
@@ -130,6 +171,28 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => UserCubit(getIt.userRepo)..getCurrentUser(),
+        ),
+        BlocProvider(
+          create: (context) => DoctorCubit(doctorsRepo: getIt.doctorsRepo)..getDoctors(),
+        ),
+        BlocProvider(
+          create: (context) => SpecialtiesCubit(getIt.specialtiesRepo),
+        ),
+      ],
+      child: const HomeView(),
     );
   }
 }

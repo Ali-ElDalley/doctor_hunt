@@ -2,9 +2,9 @@ import 'package:doctor_hunt/apps/features/common/auth/data/models/auth_request_m
 import 'package:doctor_hunt/apps/features/common/auth/data/models/otp_flow.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class SupabaseDataSource {
+class AuthDataSource {
   final SupabaseClient _client;
-  SupabaseDataSource(this._client);
+  AuthDataSource(this._client);
   Future<AuthResponse> signUp(AuthRequestModel req) async {
     return await _client.auth.signUp(
       email: req.email,
@@ -39,16 +39,18 @@ class SupabaseDataSource {
   Future<UserResponse> updatePassword(String password) async {
     return await _client.auth.updateUser(UserAttributes(password: password));
   }
-  Future<String> getUserRole(String userId) async {
-  final response = await _client
-      .from('users')
-      .select('role')
-      .eq('id', userId)
-      .single();
-  return response['role'] as String;
-}
 
-Future<void> signOut() async {
-  await _client.auth.signOut();
-}
+  Future<String> getUserRole(String userId) async {
+    final response = await _client
+        .from('users')
+        .select('role')
+        .eq('id', userId)
+        .single();
+    return response['role'] as String;
+  }
+
+  Future<void> signOut() async {
+    await _client.auth.signOut();
+  }
+
 }

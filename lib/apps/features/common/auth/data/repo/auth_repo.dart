@@ -1,11 +1,11 @@
 import 'package:doctor_hunt/apps/core/network/error/app_Exception.dart';
-import 'package:doctor_hunt/apps/features/common/auth/data/datasources/supabase_data_source.dart';
+import 'package:doctor_hunt/apps/features/common/auth/data/data_sources/auth_data_source.dart';
 import 'package:doctor_hunt/apps/features/common/auth/data/models/auth_request_model.dart';
 import 'package:doctor_hunt/apps/features/common/auth/data/models/otp_flow.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthRepo {
-  final SupabaseDataSource dataSource;
+  final AuthDataSource dataSource;
   AuthRepo(this.dataSource);
   Future<AuthResponse> signUp(AuthRequestModel request) async {
     try {
@@ -66,20 +66,21 @@ class AuthRepo {
   }
 
   Future<String> getUserRole(String userId) async {
-  try {
-    return await dataSource.getUserRole(userId);
-  } on PostgrestException catch (e) {
-    throw AppException(e.message);
-  } catch (e) {
-    throw AppException(e.toString());
+    try {
+      return await dataSource.getUserRole(userId);
+    } on PostgrestException catch (e) {
+      throw AppException(e.message);
+    } catch (e) {
+      throw AppException(e.toString());
+    }
   }
-}
 
-Future<void> signOut() async {
-  try {
-    await dataSource.signOut();
-  } catch (e) {
-    throw AppException(e.toString());
+  Future<void> signOut() async {
+    try {
+      await dataSource.signOut();
+    } catch (e) {
+      throw AppException(e.toString());
+    }
   }
-}
+
 }
